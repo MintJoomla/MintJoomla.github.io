@@ -1,0 +1,9 @@
+{
+  "directory": "assets",
+  "endpoint": "http://mintjoomla.github.io",
+  "json": "bower.json",
+  "searchpath": [
+    "https://bower.herokuapp.com"
+  ],
+  "shorthand_resolver": "git://example.com/{{{ organization }}}/{{{ package }}}.git"
+}

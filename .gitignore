@@ -1,3 +1,5 @@
 .idea
 components
 _site
+assets
+.DS_Store
