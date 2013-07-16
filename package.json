@@ -1,0 +1,17 @@
+{
+  "name": "MintJoomla.github.io",
+  "version": "0.0.1",
+  "description": "Documentaion of MintJomla",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MintJoomla/MintJoomla.github.io.git"
+  },
+  "author": "Sergey Romanov",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "2a0f28a93c3a011957a34bddf05370d8c62cd69e"
+}

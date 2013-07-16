@@ -1,3 +1,9 @@
 name: MintJoomla Documentation Home
 markdown: redcarpet
 pygments: true
+permalink: /:categories/:title
+exclude: ['./assets', './bower.json', './package.json']
+include: ['./assets/bootstrap/docs/assets/css/bootstrap.css', './assets/syntax.css']
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]

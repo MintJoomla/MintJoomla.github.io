@@ -1,0 +1,16 @@
+{
+  "name": "MintJoomla.github.io",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~2.3.2",
+    "jquery": "~2.0.3"
+  }
+}
