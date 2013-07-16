@@ -31,13 +31,13 @@ tags: поля
 
 [1]: http://p.yusukekamiyamane.com/
 
-Ниже мы подробно рассматриваются назначение и примерное содержание вышеуказанных файлов.
+Ниже подробно рассматриваются назначение и примерное содержание вышеуказанных файлов.
 
 ### Файл test.xml
 
 Содержит метаданные и параметры поля.
 
-Формат файла должен быть следующий.
+Структура файла должна быть следующей.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<cobaltfield>
@@ -64,14 +64,18 @@ tags: поля
 
 Определяет группу полей, к которой будет принадлежать поле.
 
-Все поля объединяются в группы на основании содержания этого тэга. В принципе, Вы можете использовать любое название группы. Таким образом, Вы можете включить новое поле в одну из существующих групп или создать свою собственную группу полей.
+Все поля объединяются в группы на основании содержания этого тэга.
+
+Вы можете включить новое поле в одну из существующих предопределенных групп полей или создать свою собственную группу.
+
+Если необходимо создать свою группу полей, достаточно просто поместить название этой группы внутри тэга `<group>...</group>`. Никаких дополнительных действий не требуется, Cobalt автоматически создаст эту группу.
 
 Предопределенные группы полей CCK Cobalt.
 
 Имя группы      		| Описание
 ------------------------|-------------
 Simple Form Elements	| Простые поля типа text, checkbox, radio, select и пр.
-Special Form Elements	| Поля для вывода данных в специальном формате типа telephone, url, … 
+Special Form Elements	| Поля для вывода данных в специальном формате типа telephone, url и пр. 
 Media Form Elements		| Поля для работы с медиа контекстом типа gallery, image, video, audio, uploads и пр.
 Commerce Form Elements	| Поля для электронной коммерции, работа этих полей основана на [SSI][2]
 Exclusive Form Elements	| Различные эксклюзивные поля.
@@ -191,11 +195,11 @@ getInput | Выводит форму ввода поля.
 onRenderFull | Выводит поле в полном виде статьи.
 onRenderList | Выводит поле в списке статей.
 onPrepareFullTextSearch | Сохраняет значение поля для полнотекстового поиска.
-onPrepareSave | ?????.
+onPrepareSave | Сохраняет значение поля в базе данных.
 onStoreValues | Сохраняет значение поля для фильтрации или сортировки по этому полю.
 validate | Проверяет правильность ввода значения поля перед его сохранением на сервере в базе данных.
 onJSValidate | Позволяет подключать проверку правильности ввода значения поля на форме ввода посредством JavaScript.
-onRenderFilter | ????? Выводит поле в форме фильтра.
+onRenderFilter | Выводит поле в форме фильтра.
 onFilterWhere | ?????.
 onFilterWornLabel | ?????.
 onImport | ?????.
@@ -368,7 +372,17 @@ onImport | ?????.
 
 #### метод onRenderFilter
 
-Выводит форму фильтра.
+Выводит поле в форме фильтра.
+
+Код метода по умолчанию.
+
+	public function onRenderFilter($section, $module = false)
+		{
+			[код пользователя]
+	  		return $this->_display_filter($section, $module);
+		}
+
+Этот пример демонстрирует базовый принцип работы с фильтрами.
 
 	public function onRenderFilter($section)
 	{
@@ -388,13 +402,15 @@ onImport | ?????.
 		}
 		$db->setQuery($query);
 		$this->list = $db->loadObjectList();
+
+		return $this->_display_filter($section, $module);
 	}
 
-Этот пример демонстрирует базовый принцип работы с фильтрами.
+Во-первых, все данные должны быть сохранены в таблице `js_res_record_values` базы данных методом `onStoreValues`.
 
-This example demonstrates basic principal of working with filters. First is that all data have to be saved in `js_res_record_values` through `onStoreValues`. 
+Далее, в файле шаблона формы фильтра по умолчанию `tmpl/filter/default.php` Вы можете использовать `$this->list` для создания filter элементов и `$this->values` для по умолчанию/выбранных значений.
 
-Now in `tmpl/filter/default.php` you can use `$this->list` to create filter elements and `$this->values` for default/selected values. Example for listing checkboxes would be
+Пример кода для поля checkbox может быть следующим
 
 	<?php foreach($this->list AS $el):?>
 		<?php $selected = (in_array($el, $this->values) ? ' checked="checked" ' : NULL)?>
@@ -402,8 +418,9 @@ Now in `tmpl/filter/default.php` you can use `$this->list` to create filter elem
 		<?php echo JText::_($el); ?> 
 	<?php endforeach;?>
 
-This example show list of elements as checkboxes.  Note the element name. It always have to start with `filters[<?php echo $this->key; ?>]`.
+Это пример показывает список элементов в виде checkbox.
 
+Необходимо обратить внимание на имя элемента. Оно всегда должно начинаться с `filters[<?php echo $this->key; ?>]`.
 
 #### метод onFilterWhere
 
@@ -502,6 +519,19 @@ Whatever you return become `json.result` in javascript `onComplete(json)`. If yo
 ### Файлы шаблонов поля
 
 Предназначены, в основном, для вывода поля на форме.
+
+#### Получение параметров поля
+
+Все параметры поля делятся на 2 группы:
+
+1. Параметры ядра Cobalt
+2. Индивидуальные параметры поля 
+
+Параметры поля в файлах шаблонов доступны через 
+
+    $this->params->get('core.field_class', 'inputbox');
+	где
+	
 
 Например, для ввода текстового значения в шаблон формы ввода поля по умолчанию `tmpl/input/default.php` можно добавить следующий фрагмент кода
 
