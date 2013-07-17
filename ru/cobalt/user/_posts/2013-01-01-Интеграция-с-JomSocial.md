@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: doc
 title:  "Интеграция JomSocial"
 date:   2013-07-16 18:53:38
 tags: многоязыковость язык

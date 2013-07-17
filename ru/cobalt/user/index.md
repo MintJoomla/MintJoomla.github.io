@@ -7,5 +7,7 @@ date:   2013-07-16 18:53:38
 В этом разделе вы найдете статьи которые помогут вам понять основы Кобальт и ответят на все необходимые вопросы.
 
 {% for post in site.categories.user %}
+{% if post.categories contains "cobalt" %}
 - [{{ post.title }}]({{ post.url }})
+{% endif %}
 {% endfor %}

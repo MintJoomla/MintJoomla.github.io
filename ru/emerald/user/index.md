@@ -7,5 +7,7 @@ date:   2013-01-01 00:00:00
 В этом разделе вы найдете статьи которые научат вас создвавть и настривать подписные планы, платежные системы и управлять подписками.
 
 {% for post in site.categories.user %}
+{% if post.categories contains "emerald" %}
 - [{{ post.title }}]({{ post.url }})
+{% endif %}
 {% endfor %}
