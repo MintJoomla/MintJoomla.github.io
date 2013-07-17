@@ -22,6 +22,9 @@
 <script type="text/javascript" src="/assets/bootstrap/docs/assets/js/bootstrap.min.js"></script>
 <script>
 	$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
+	$.each($('.post table'), function(k, v){
+		$(v).addClass('table table-striped table-bordered');
+	});
 </script>
 </body>
 </html>
