@@ -1,24 +1,28 @@
 ---
 layout: default
 ---
+<header>
+	<div class="container">
+		<h1 class="post-title">{{ page.title }}</h1>
 
-<div class="page-header">
-	<h1><a href="/">{{ site.name }}</a></h1>
+	</div>
+</header>
+
+
+<div class="container">
+	<article class="post">
+		<ul class="breadcrumb">
+			<li><a href="/"><i class="icon-home"></i> Home</a></li>
+			{% assign crumbs = page.url | split: '/' %}
+			{% assign crumbstotal = crumbs | size %}
+			{% for crumb in crumbs offset:1 %}
+			{% unless crumb == 'index.html' %}
+			{% capture link %}{{ link }}/{{ crumb | remove: '.html' }}{% endcapture %}
+			<li><span class="divider">&#187;</span> <a href="{{ link }}/">{{ crumb | remove: '.html' }}</a></li>
+			{% endunless %}
+			{% endfor %}
+		</ul>
+		{{ content }}
+	</article>
+
 </div>
-<ul class="breadcrumb">
-	<li><a href="/"><i class="icon-home"></i> Home</a> </li>
-	{% assign crumbs = page.url | split: '/' %}
-	{% assign crumbstotal = crumbs | size %}
-	{% for crumb in crumbs offset:1 %}
-	{% unless crumb == 'index.html' %}
-	{% capture link %}{{ link }}/{{ crumb | remove: '.html' }}{% endcapture %}
-	<li><span class="divider">&#187;</span> <a href="{{ link }}/">{{ crumb | remove: '.html' }}</a> </li>
-	{% endunless %}
-	{% endfor %}
-</ul>
-
-<h1 class="post-title">{{ page.title }}</h1>
-
-<article class="post">
-	{{ content }}
-</article>
