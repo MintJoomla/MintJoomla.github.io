@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Документация Изумруд 9 для пользователей"
+title:  "Документация Emerald 9 для пользователей"
 date:   2013-01-01 00:00:00
 ---
 
-В этом разделе вы найдете статьи которые научат вас создвавть и настривать подписные планы, платежные системы и управлять подписками.
+Cтатьи, которые помогут интегрировать изумруд с другими компанентами или создавать новые платежные терминалы.
 
-{% for post in site.categories.user %}
-{% if post.categories contains "emerald" %}
+{% for post in site.categories.ru %}
+{% if post.categories contains "emerald" and post.categories contains "user" %}
 - [{{ post.title }}]({{ post.url }})
 {% endif %}
 {% endfor %}
