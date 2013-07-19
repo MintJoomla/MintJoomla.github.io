@@ -285,11 +285,11 @@ onImportForm() | ?????.
 		$js = '';
 		if ($this->required)
 		{
-			$js .= "\n\t\t if($('field_{$this->id}').value == ''){
+			$js .= "\n\t\t if($('field_{$this->id}').value == '') {
 				hfid.push({$this->id}); 
 				isValid = false; 
 				errorText.push('" . JText::sprintf('CFIELDREQUIRED', $this->label) . "');
-				}";
+			}";
 		}
 		return $js;
 	}
