@@ -125,3 +125,47 @@ You can find field type name in the list of the fields **(1)**
 
 ![Type and id](/assets/img/screenshots/typeandid.png)
 
+## Setting Field In Parameters
+
+This is very cool technique to manage, style or position individual fields.
+
+For example there is field Price. And you want it to be shown in special place with a special style.
+
+1. Add fieldlist parameter
+	
+		<fields name="tmpl_params">
+			<fieldset name="name1" label="Position Fields" 
+				description="Set fields to be positioned">
+				<field name="field_price" type="meresourcesfields" label="Where is the price?" />
+			</fieldset>
+		</fields>
+		
+	<div class="alert alert-info">If any on your parameter link to field, its name have to start with `field_*`.</div>
+	
+	If you want only some type of fields to be shown in the list use `filters="'text', ' textarea', 'html'"`. This is who you can limit what types of the fields to show.
+	
+	if you want this field to by multiple select add `size="15"` and `mutiple="true"`
+
+2. In template use something like this
+
+		<?php if(isset($item->fields_by_key[$params->get('tmpl_params.field_price')])):?>
+			<span class="price-tag">
+				<?php echo $item->fields_by_key[$params->get('tmpl_params.field_price')]->result; ?>
+			</span>
+		<?php endif; ?>
+	
+And I do теo need to tell you how to style `.price-tag` class in your template css file.
+
+### Q: What if I display explicitly only one field and rest I want to fetch and I do not want this field to be listed in the cycle?
+
+After you called this field you may unset it from the field array.
+
+	<?php if(isset($item->fields_by_key[$params->get('tmpl_params.field_price')])):?>
+		<span class="price-tag">
+	  		<?php echo $item->fields_by_key[$params->get('tmpl_params.field_price')]->result; ?>
+	  		<?php unset($item->fields_by_key[$params->get('tmpl_params.field_price')]);?>
+		</span>
+	<?php endif; ?>
+
+Then later when you fetch it won't be there.
+
