@@ -2,3 +2,5 @@
 components
 _site
 .DS_Store
+update.bat
+*/Thumbs.db
