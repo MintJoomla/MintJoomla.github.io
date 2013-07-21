@@ -1,7 +1,8 @@
 ---
 layout: doc
-title:  "What is CCK"
+title:  "What is CCK?"
 date:   2013-01-01 20:00:10
+tags: setup FAQ
 ---
 CCK stands for **Content Construction Kit**.
 

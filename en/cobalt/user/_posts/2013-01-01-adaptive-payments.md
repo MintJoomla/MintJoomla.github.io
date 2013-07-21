@@ -2,7 +2,9 @@
 layout: doc
 title:  "Cobalt and PayPal Adaptive Payments"
 date:   2013-01-01 12:30:30
+tags: e-commerce
 ---
+
 Adaptive payments handles payments between a sender of a payment and one or more receivers of the payment. By simple words adaptive payment will allow you in your multivendor shop to get % off each sale on your site through Cobalt CCK.
 
 ## Key Concepts

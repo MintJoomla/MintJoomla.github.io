@@ -2,6 +2,7 @@
 layout: doc
 title:  "How to have Cobalt to send email alerts"
 date:   2013-01-01 12:30:30
+tags: cron setup
 ---
 First of all, emails are not good. People does not like that. That is why every user in Joomla has choice to turn it off regardless your settings. Every use can decide either he wants to receive only notifications or also email alerts to be sent daily, weekly or monthly.
 

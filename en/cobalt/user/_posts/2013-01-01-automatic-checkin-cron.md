@@ -2,6 +2,7 @@
 layout: doc
 title:  "Automatic articles check-in cron task"
 date:   2013-01-01 12:30:30
+tags: cron setup
 ---
 It is often happens that users do not close their articles properly. And others cannot edit those articles. There is a special cron tast which you can use. It will check in all checked out articles later than 30 minuts.
 

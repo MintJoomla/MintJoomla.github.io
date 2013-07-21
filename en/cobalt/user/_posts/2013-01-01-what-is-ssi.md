@@ -1,7 +1,8 @@
 ---
 layout: doc
-title:  "What is Cobalt SSI (Simple Sale Interface)"
+title:  "What is Cobalt SSI (Simple Sale Interface)?"
 date:   2013-01-01 18:00:00
+tags: FAQ e-commerce
 ---
 
 SSI stands for **Simple Sale Interface**

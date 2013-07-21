@@ -2,6 +2,7 @@
 layout: doc
 title:  "Cobalt 8 - Quick Start"
 date:   2013-01-01 20:00:00
+tags: setup
 ---
 
 This document will guide you through 4 basic steps to work with Cobalt.  At first Cobalt may looks complicated because you will see a lot of parameters everywhere. But do not be scared, after you learn Cobalt concept, understand it is philosophy and learn those parameters you will love them. Believe me you will love every single parameter because every one of them will give you great flexibility. You will even ask for more adjustments options.

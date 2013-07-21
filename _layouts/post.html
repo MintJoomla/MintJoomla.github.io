@@ -10,19 +10,74 @@ layout: default
 
 
 <div class="container">
-	<article class="post">
-		<ul class="breadcrumb">
-			<li><a href="/"><i class="icon-home"></i> Home</a></li>
-			{% assign crumbs = page.url | split: '/' %}
-			{% assign crumbstotal = crumbs | size %}
-			{% for crumb in crumbs offset:1 %}
-			{% unless crumb == 'index.html' %}
-			{% capture link %}{{ link }}/{{ crumb | remove: '.html' }}{% endcapture %}
-			<li><span class="divider">&#187;</span> <a href="{{ link }}/">{{ crumb | remove: '.html' }}</a></li>
-			{% endunless %}
-			{% endfor %}
-		</ul>
-		{{ content }}
-	</article>
+	<div class="row">
+		<div class="span9">
+			<article class="post">
+				<ul class="breadcrumb">
+					<li><a href="/"><i class="icon-home"></i> Home</a></li>
+					{% assign crumbs = page.url | split: '/' %}
+					{% assign crumbstotal = crumbs | size %}
+					{% for crumb in crumbs offset:1 %}
+					{% unless crumb == 'index.html' %}
+					{% capture link %}{{ link }}/{{ crumb | remove: '.html' }}{% endcapture %}
+					<li><span class="divider">&#187;</span> <a href="{{ link }}/">{{ crumb | remove: '.html' }}</a></li>
+					{% endunless %}
+					{% endfor %}
+				</ul>
+				{{ content }}
+			</article>
+		</div>
+		<div class="span3 right">
+			{% if page.tags contains 'developer' %}
+			<h2>For Developer</h2>
+
+			<h3>API</h3>
+
+			<div class="well">
+				<ul class="unstyled">
+					{% for post in site.tags.API %}
+					{% if post.tags contains "developer" and post.categories contains "en" and post.categories contains "cobalt" %}
+					<li {% if post.id == page.id%}class="active"{% endif %}>
+						<a href="{{ post.url }}">{{ post.title }}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+
+			<h3>Fields</h3>
+
+			<div class="well">
+				<ul class="unstyled">
+					{% for post in site.tags.fields %}
+					{% if post.tags contains "developer" and post.categories contains "en" and post.categories contains	"cobalt" %}
+					<li {% if post.id == page.id%}class="active"{% endif %}>
+						<a href="{{ post.url }}">{{ post.title }}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+
+			<h3>Templates</h3>
+
+			<div class="well">
+				<ul class="unstyled">
+					{% for post in site.tags.templates %}
+					{% if post.tags contains "developer" and post.categories contains "en" and post.categories contains	"cobalt" %}
+					<li {% if post.id == page.id%}class="active"{% endif %}>
+						<a href="{{ post.url }}">{{ post.title }}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+			{% else %}
+
+			<h2>For User</h2>
+
+			{% endif %}
+		</div>
+	</div>
 
 </div>
