@@ -82,75 +82,9 @@ tags: templates developer
 
 ## 6. Параметры шаблонов
 
-Для наиболее эффективного создания шаблонов и управления ими Вы можете использовать параметры шаблонов. Вы можете добавить свои параметры, которые будут влиять на стиль шаблона, позицию поля или еще что-нибудь по Вашему желанию.
+Мы посвятили статью о том [как работать с парамтерами шаблонов](/ru/cobalt/create-templates-params).
 
-В `default_record_default.xml` - в любом XML файле шаблона Вы найдете 2 группы параметров `<fields>`. Это _tmpl_params_ и _tmpl_core_. 
-
-Например
-
-
-	<fields name="tmpl_params">
-	    <fieldset name="general">
-	        <field name="max_width" type="text" size="6" default="150" label="CSELCTMAXW" description="CSELWDESCR" />
-	            <field name="cat_ordering" type="list" label="CORDERING"  default="c.lft ASC">
-	            <option value="c.lft ASC">CORDERING</option>
-	            <option value="c.title ASC">CORDERNAMEASC</option>
-	            <option value="c.title DESC">CORDERNAMEDESC</option>
-	        </field>
-	        <field name="cat_descr" type="list" default="0" label="CTOOTIPDESCR" description="">
-	            <option value="0">CNO</option>
-	            <option value="before">CTOOLTIPBEFOR</option>
-	            <option value="after">CTOOLTIOPAFTER</option>
-	            <option value="full">CTOOLTIPFULL</option>
-	        </field>
-	    </fieldset>
-	</fields>
-	<fields name="tmpl_core">
-	    <fieldset name="general2">
-	        <field name="category_label" type="radio" label="CSHOWLABEL"  default="1">
-	            <option value="0">CNO</option>
-	            <option value="1">CYES</option>
-	        </field>
-    	</fieldset>
-	</fields>
-
-
-<div class="alert alert-info">Вы можете добавлять свои параметры только в группу _tmpl_params_. Не удаляйте группу _tmpl_core_, т.к. она может быть использована внутри Cobalt.</div>
-
-Вы можете добавлять любое количество параметров в группу `<fields name="tmpl_params">`. На самом деле это даже хорошо, потому что чем лучше организованы Ваши параметры, тем легче это использовать. Группируйте парамтеры в группы `<fieldset>` для более удобного использования.
-
-Вы также можете добавить атрибуты `description` и `label`, для `<fieldset>` например
-
-	<fieldset name="general" label="main Parameters" description="Do not miss required parameters">
-	    // fields go her ...
-	</fieldset>
-
-После добавления параметров в XML-файл шаблона, Вы имеете к ним доступ в настройках шаблона.
-
-В каждом шаблоне параметры передаются по-разному. Я знаю, что это не совсем хорошо, но это необходимо. Чтобы узнать, как использовать параметры шаблона, смотрите начало PHP-файла шаблона. В каждом шаблоне Cobalt мы инициализируем переменную `$params`. Что-то вроде этого
-
-	$params = $this->tmpl_params;
-
-Или этого
-
-	$params = $this->tmpl_params['list'];
-
-Но это всегда `$params`. Таким образом Вы можете узнать, как инициализируется объект `$params` Вашего шаблона. Не удаляйте эту строку кода.
-
-Теперь Вы можете это использовать, например
-
-	<?php if($params->get('tmpl_params.item_icon_title')): ?>
-	    <?php echo JHTML::image($url);?>
-	<?php endif; ?>
-
-Здесь `tmpl_params` в `tmpl_params.item_icon_title` есть имя группы параметров и `item_icon_title` есть имя поля
-
-	<field name="item_icon_title" type="radio" label="Show icon title"  default="1">
-	    <option value="0">CNO</option>
-	    <option value="1">CYES</option>
-	</field>
-
-## 7. Редактирование шаблонов
+## 7. Настройка шаблонов
 
 Так как каждый вид шаблона имет свои особенности мы создали отдельные статьи как редактировать шаблоны.
 
