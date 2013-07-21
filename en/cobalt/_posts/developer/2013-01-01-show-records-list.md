@@ -34,7 +34,7 @@ And then you can call it.
 		$ids
 	);
 	
-This method return array with 4 keys `html`,  `total`, `list` and `ids`.
+This method return array with 4 keys `html`, `total`, `list` and `ids`.
 
 	echo '<h1>Records</h1>';
 	echo JText::sprintf('Total found %d records', $data['total']);
@@ -63,8 +63,6 @@ $client        | Name of the extension that use Cobalt article. For example when
 $client_id     | Id of the parent article.
 $lang          | `true` or `false` - shoe articles of current language only or any language.
 $ids           | array of record IDs. If you ant to show specific articles you can get their IDs first by SQL query and then pass to list them.
-
-
 
 Lets assume you display list of records and you want to give user some control what and how to show. For example you want use to chose template or limit, here is the list of XML elements for creating a form that store values to call this method later.
 

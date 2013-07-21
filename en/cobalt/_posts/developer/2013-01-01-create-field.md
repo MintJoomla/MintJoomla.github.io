@@ -66,7 +66,7 @@ Commerce Form Elements	| Fields that works based on [SSI][2]
 Exclusive Form Elements	| Just some awesome, outstanding fields
 Relation Form Elements	| Fields that create relations between articles and show list of other articles.
 
-[2]: http://www.mintjoomla.com/blog/item/53-what-is-ssi-in-depth.html
+[2]: /en/cobalt/what-is-ssi
 
 **`<config>`**
 

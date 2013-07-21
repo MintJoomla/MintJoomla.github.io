@@ -3,7 +3,7 @@ layout: doc
 title:  "Cobalt 8 - Quick Start"
 date:   2013-01-01 20:00:00
 tags: setup
-intro: "Learn how to start using cobalt in 5 minutes."
+intro: "Learn how to start using cobalt in 5 minutes"
 ---
 
 This document will guide you through 4 basic steps to work with Cobalt.  At first Cobalt may looks complicated because you will see a lot of parameters everywhere. But do not be scared, after you learn Cobalt concept, understand it is philosophy and learn those parameters you will love them. Believe me you will love every single parameter because every one of them will give you great flexibility. You will even ask for more adjustments options.
@@ -20,7 +20,7 @@ I will not explain all type parameters here, you can quickly look through them. 
 2. Enter type name **Blog Post**. In parameters, find _Menu item ID_ and set there menu element we create in first step.
 3. Now open _Submission_ slider. If you want other users submit from frontend, in _Who can submit_ select _public_ or _registered_. If you want only administrators to submit you can select _special_.
 
-   <div class="box-info">Note! Records may be submitted only from frontend. There is no new record button in backend.</div>
+   <div class="alert alert-info">Note! Records may be submitted only from frontend. There is no new record button in backend.</div>
    
    This is why you have to set those parameters.
    
@@ -30,16 +30,16 @@ I will not explain all type parameters here, you can quickly look through them. 
    
 Type is ready. Now we have to add there some fields.
 
-1. Click on _Fields (0)_ on the left of the type name to get to the list of the type fields.
+1. Click on _Fields (0)_ on the right of the type name to get to the list of the type fields.
 2. Click _New_ in toolbar.
 3. Enter field name _Post_
 4. Select field type _HTML_. You will see parameters of the field loaded. You may leave them as they are.
 
-If it would be  other field type we could save if. But with HTML usually we need little bit more adjustments. Because we want it on the form to be full width and in the article.
+   If it would be  other field type we could save if. But with HTML usually we need little bit more adjustments. Because we want it on the form and in the article to be full width.
 
 5. In the _General Parameters_ of the field on the right find _Show label_ and set it to _Hide Label_. Then find _Break after label_ and set it to _Break on submit form and record full view_.
 
-<div class="box-info">Note! This settings are usually make sense for fields like <a href="http://www.mintjoomla.com/download-fields/item/18-simple-fields/61-field-textarea.html">Textarea</a>, <a href="http://www.mintjoomla.com/download-fields/item/18-simple-fields/62-field-html.html">HTML</a> or <a href="http://www.mintjoomla.com/download-fields/item/21-media-fields/74-field-gallery.html">Gallery</a> only in record full view but not in the form. Otherwise you may leave them default.</div>
+<div class="alert alert-info">Note! This settings are usually make sense for fields like <a href="http://www.mintjoomla.com/download-fields/item/18-simple-fields/61-field-textarea.html">Textarea</a>, <a href="http://www.mintjoomla.com/download-fields/item/18-simple-fields/62-field-html.html">HTML</a> or <a href="http://www.mintjoomla.com/download-fields/item/21-media-fields/74-field-gallery.html">Gallery</a> only in record full view but not in the form. Otherwise you may skip those parameters and keep them default.</div>
 
 ## Step 3 - Create Section
 

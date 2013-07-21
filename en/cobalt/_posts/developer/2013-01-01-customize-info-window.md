@@ -8,7 +8,7 @@ tags: developer templates fields
 
 When you click on the marker on the map, info window is popped up. It has universal layout and in most cases is not what you want to see. it also do not have any parameters to hide author name or publish date.
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/geo-info-window.png)
+![](/assets/img/screenshots/geo-info-window.png)
 
 If you want to change how it looks, you will have to create custom template.
 
@@ -18,13 +18,13 @@ Good news with Cobalt you can fully control how this window looks. It takes some
 
 2. In field parameter at very bottom chose this template for info window.
 
-    ![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/geo-infor-window-field-param.png)
+    ![](/assets/img/screenshots/geo-infor-window-field-param.png)
 
 3. Edit your new file and delete anything you do not need there.
 
 ### Suggestions
 
-Note that rules for full view [custom article templates][KB1] works. It means that you may call fields.
+Note that rules for full view [custom article templates](/en/cobalt/custom-templates/) works. It means that you may call fields.
 
 	$key = $this->field_keys_by_id[12];
 	echo $record->fields_by_key[$key]->result;
@@ -35,6 +35,4 @@ Or directly by `ID`
 
 Where `12` is an `ID` of the field (2).
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/fieldkey.png)
-
-[KB1]: http://www.mintjoomla.com/community/knowledge/user-item/43-sergey/114-how-to-customize-cobalt-templates.html
+![](/assets/img/screenshots/typeandid.png)

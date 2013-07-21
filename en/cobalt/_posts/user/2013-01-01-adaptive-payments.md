@@ -124,7 +124,7 @@ If only the primary receiver pays the fee in a chained payment, other receivers 
 
 In PayPal parameters in any [SSI][ssi] based field you will see new parameters group. As for the moment of this article publish there are only 3 SSI fields. [Pay to download][ssi1], [Pay voucher][ssi2] to sell any serial numbers and [Pay to access][ssi3] to sell access to full article view. And we plan Tangible, Donation and Event.
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/adaptivepayment.png)
+![](/assets/img/screenshots/adaptivepayment.png)
 
 Let me describe what those parameters are.
 
@@ -173,6 +173,6 @@ Without any commission system inside the Cobalt you get great commission system 
 [ssi3]: http://www.mintjoomla.com/download-fields/item/23-e-commerce-fields/137-field-pay-to-access.html
 [pa]: http://www.paypal.com/cgi-bin/webscr?cmd=_display-approved-signup-countries-outside
 [tf]: https://www.paypal.com/cgi-bin/webscr?cmd=_display-xborder-fees-outside&countries=
-[ssi]: http://www.mintjoomla.com/blog/item/53-what-is-ssi-in-depth.html
+[ssi]: /en/cobalt/what-is-ssi/
 [gl]: https://www.x.com/developers/paypal/documentation-tools/going-live-with-your-application
 

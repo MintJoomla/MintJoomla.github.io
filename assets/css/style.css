@@ -33,6 +33,9 @@ h3 {
 .label {
     font-weight: normal;
 }
+article .article .img-polaroid {
+    margin: 20px 0;
+}
 article.post {
     margin-top: 20px;
     background-color: #ffffff;
@@ -52,7 +55,7 @@ blockquote p {
     margin-bottom: 10px;
 }
 
-alert {
+.alert {
     margin-top: 10px;
 }
 .right li, .list-index li {

@@ -12,7 +12,7 @@ Ofter default URL does not satisfy Cobalt users. And I understand that. We are u
 
 Long ago when we made extensions for Joomla 1.0 under JomlaEquipment brand, we had one of the most popular SEF extensions called JPromoter. We know what it is to manage SEF URls and what a cost or consequences are of a simple desire to make URLs little bit more beautiful.
 
-### Is SEF important?
+## Is SEF important?
 
 While optimization of SEF URLs use simple rule.
 
@@ -36,7 +36,7 @@ And who cares? Why should google or youtube be concerned about that? Do you real
 
 **Conclusion: When we make decision most important is how crawlers see the link rather than how visitors see (beauty of) the link.**
 
-### Take IDs out of the link
+## Take IDs out of the link
 
 One of the most wanted features is to take IDs off the URL. Bet here is the matter. Assuming we have URL like:
 
@@ -58,11 +58,11 @@ This is why we will never create something like this in Cobalt. But it does not 
 
 **Conclusion: Never sacrifice performance for sake or beauty. You will lose more on slowness of your site then earn on beauty of the link and for crawler it really makes no different if you have IDs in URL or not.**
 
-### Optimization
+## Optimization
 
 But something we can do about SEF URLs in Cobalt. We use key-based URL structure. This simple means that first URL segment is a key that tells cobalt what is the type of URL and how to parse it.
 
-#### Key optimization
+### Key optimization
 
 Let's parse few links
 
@@ -79,7 +79,7 @@ where
 
 Keys are text variables. This means we can translate them and those are different on every language. You can override those variables in Joomla -> Extensions -> Language Manager -> Overrides
 
-![img](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/langoverrides.png)
+![img](/assets/img/screenshots/langoverrides.png)
 
 Here is the full list of keys you can override. Usually people want to shorten it.
 
@@ -93,7 +93,7 @@ Here is the full list of keys you can override. Usually people want to shorten i
 - `SEF_USERITEM` user-items
 - `SEF_USER_ITEM` user-item
 
-#### Link optimization
+### Link optimization
 
 It happens often that alias of section is the same as alias of menu. For example you have section _forum_ and you have link in menu also _forum_. When you navigate to category link will be something like.
 
@@ -107,12 +107,12 @@ Cobalt gives you ability to change aliases of Sections, categories and article, 
 
 [ms]: http://www.mintjoomla.com/community/depot/item/2-cobalt-integrations/205-cobalt-extension-for-mijosearch-1-1-stable.html
 
-#### Your own router
+### Your own router
 
 Cobalt has system where you can chose your own router. Joomla loads `router.php` file from the root of extension. In Cobalt this file loads another file which you can set in global Cobalt parameters.
 
 Those files are in folder `routers`. Right now there is only one router `main_router.php` but you can copy this files and give it new name. And then select it in Cobalt config.
 
-![routing](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/customrouting.png)
+![routing](/assets/img/screenshots/customrouting.png)
 
 You can change this file as you want. You can hide aliases or even make SEF based on SQL queries and hide IDs.

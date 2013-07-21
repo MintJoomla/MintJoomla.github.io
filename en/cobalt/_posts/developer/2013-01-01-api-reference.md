@@ -5,8 +5,6 @@ date:   2013-01-01 12:30:30
 tags: developer API
 ---
 
-<div class="alert">This is ongoing article. I'll add here small tricks and tips along the way. Please follow/subscribe this article to get alerts when I edit this article</div>
-
 ## Render individual field
 
 You can easily get value of individual field.

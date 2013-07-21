@@ -10,7 +10,7 @@ Filter module is very useful part of Cobalt. It is used very often. But the way 
 
 The example is shortened, otherwise it would take even more space.
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/filter_example.png)
+![](/assets/img/screenshots/filter_example.png)
 
 What we see here is advanced search form. This is very possible to make with Cobalt and either custom  markup template or filter module template. Let me show you how.
 
@@ -24,7 +24,7 @@ Would be good if you know [Twitter Bootstrap](http://twitter.github.io/bootstrap
 
 Fist, copy template `modules/mod_cobalt_filter/tmpl/default.php` which your own name. later you can chose this template in module settings.
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/filtermoduletemplate.png)
+![](/assets/img/screenshots/filtermoduletemplate.png)
 
 Now you can edit this file. 
 
@@ -72,7 +72,7 @@ And now you want to position Field filter explicitly. You can use
 
 Where `$key` is a field key (1).
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/fieldkey.png)
+![](/assets/img/screenshots/typeandid.png)
 
 But you do not need to use this key directly you may use `Id` (2). Like this: `$key = $keys_by_id[52];` where `52` is an `Id` of the field. So final code would look like this.
 
@@ -80,7 +80,7 @@ But you do not need to use this key directly you may use `Id` (2). Like this: `$
 
 Look how example layout may looks.
 
-![](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/templateexample.png)
+![](/assets/img/screenshots/templateexample.png)
 
 Here is the code example of image above.
 
@@ -133,4 +133,4 @@ The only complexity of markup template, the template itself. It contain not only
 
 On the other hand, if you go through this difficult process of learning, you will lose fear. You will not feel limited. You will feel like you can do what ever you want without depending on anyone. All you need is just basic HTML/CSS skill.
 
-Please read article on [How to customize Cobalt templates](http://www.mintjoomla.com/community/knowledge/user-item/43-sergey/114-how-to-customize-cobalt-templates.html) for basic understanding Cobalt templates system.
+Please read article on [How to customize Cobalt templates](/en/cobalt/custom-templates-general/) for basic understanding Cobalt templates system.

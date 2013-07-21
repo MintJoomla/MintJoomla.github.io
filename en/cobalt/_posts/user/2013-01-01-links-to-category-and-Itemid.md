@@ -79,7 +79,7 @@ But if you click _General Discussions_ category link on the `http://mysite.com/f
 
 	But _General Discussions_ menu element **will not be highlighted** and it will be different URL then menu URL and thus **create double URL**.
 
-Please read how you can [optimize URLs](http://www.mintjoomla.com/community/knowledge/user-item/43-sergey/240-sef-url-optimisation-tips.html) which partially covers this subject.
+Please read how you can [optimize URLs](/en/cobalt/sef-optimisation/) which partially covers this subject.
 
 ### How to sole it?
 
@@ -94,13 +94,16 @@ But where do we take `Itemid`? Well we can run SQL query to DB and find links to
 That is why we added parameters for:
 
 **Section**  
-![section](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/ii_section.png)
+
+![section](/assets/img/screenshots/ii_section.png)
 
 **Content type**  
-![type](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/ii_type.png)
+
+![type](/assets/img/screenshots/ii_type.png)
 
 **Category**  
-![category](http://serhioromano.s3.amazonaws.com/mintjoomla/KB/ii_category.png)
+
+![category](/assets/img/screenshots/ii_category.png)
 
 Thus we solve all the issues with double URLs. If you set those parameters you may be sure that all URLs will be the same. On the other hand you may set different `Itemid` for _section_ and _content type_ which is often the case when you want different modules in article list and article full views.
 
@@ -124,8 +127,8 @@ Well, I my disappoint you but `Itemid` have nothing to do with SEO compliant lin
 
 We have to understand that although we use _External URL_ menu type it is still _Internal_ for crawlers like Google because it is under the same domain.
 
-Second we have to understand that _External URL_ does contain `Itemid` but simple the same as section `Itemid`. 
+Second we have to understand that _External URL_ menu type does attach `Itemid` but already contain section `Itemid`. 
 
 In good hands Joomla site + [Google webmaster tools](https://www.google.com/webmasters/tools/home) - `Itemid` is set as insignificant for crawler not consider it as important variable. Because it is one of the most common cause of double URLs.
 
-Yes, this is what i want to say. If you have `Itemid` for every category, most probably it will cause more problems than help with  SEO compliant links.
+Here is what I am trying to say. If you have `Itemid` for every category, most probably it will cause more problems than help with SEO compliant links.

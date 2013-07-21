@@ -12,7 +12,7 @@ For example you want download or file manager. Apart from HTML file description 
 
 Fields are later used not only to display additional information information but also to filter or search though. Let's say you have a car catalog. And you added fields _Year_ and _Model_ to the article submission form. not only now you can see this in the article/listing text but you will be able too look/search for car _between 2004-2005_ only _BMW-X7 series_.
 
-### Still not clear?
+## Still not clear?
 
 Then you may consider CCK as a form builder. Actually it is nothing more than that. It is form constructor. You create form and add fields to that form like select, checkbox, text, … Then you can use this form to get data from this form. Usually form generators send that data to email. But imagine we store it in DB. And we created nice view to list those entries. And we added a lot of feature to operate with those entries like it would be an article. You can publish, unpublish, hide, bookmark, watch, …
 
@@ -20,6 +20,6 @@ As addition you can read nice explanation about what are types and section/categ
 
 That is it.
 
-### Additional
+## Additional
 
-Please watch also Cobalt [quick start tutorial]({% post_url 2013-01-01-cobalt-quick-start %}) to get more ideas.
+Please watch also Cobalt [quick start tutorial](/en/cobalt/cobalt-quick-start/) to get more ideas.

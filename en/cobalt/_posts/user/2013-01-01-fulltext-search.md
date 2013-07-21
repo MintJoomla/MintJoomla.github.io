@@ -24,11 +24,11 @@ And yes you can use `+` or `-` in front of the words to include or exclude it fr
 ## Understand Parameters
 There are number of parameters to customise search, and let me explain those. One parameters group is found in the section parameters. 
 
-![params](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/fultextsearch.png)
+![params](/assets/img/screenshots/fultextsearch.png)
 
 And other in every field
 
-![field](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/searchablefield.png)
+![field](/assets/img/screenshots/searchablefield.png)
 
 Parameters _Search title_, _Search author name_, _Search author email_ and _Searchable_ field parameter tells Cobalt to save those values into full text index when article is saved.
 
@@ -40,7 +40,7 @@ But sometimes you need to find something simple. For example title of your artic
 
 You can use full text search on fronted entering search text into Cobalt search field. It will also work in core Joomla search, since Cobalt search plugin is also using full text search.
 
-![search](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/searchinput.png)
+![search](/assets/img/screenshots/searchinput.png)
 
 ## Known Problems
 
@@ -48,5 +48,4 @@ Since any text is added to `FULLTEXT` index on article save event, there is a pr
 
 But that is a way boring process. That is why there is Reindex tool in Cobalt toolset. 
 
-
-[](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/reindextool.png)
+![](/assets/img/screenshots/reindextool.png)

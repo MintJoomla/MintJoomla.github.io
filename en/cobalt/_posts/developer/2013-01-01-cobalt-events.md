@@ -6,7 +6,9 @@ tags: developer API events
 intro: "Integrate your or third party extension with Cobalt events."
 ---
 
-Cobalt has event system and trigger `onActivity` event on every action in cobalt. You have to create Joomla plugin of `mint` group. Here is `XML`
+Cobalt has event system and trigger `onActivity` event on every action in cobalt. 
+
+You have to create Joomla plugin of `mint` group. Here is `XML`
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<extension version="3.0" type="plugin" group="mint" method="upgrade">
@@ -31,34 +33,36 @@ Cobalt has event system and trigger `onActivity` event on every action in cobalt
 You create plugin as you create any other [Joomla plugin](http://docs.joomla.org/Creating_a_Plugin_for_Joomla/2.5).
 
 Here is sample 
+
 	<?php
 	defined('_JEXEC') or die('Restricted access');
 	
 	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
-	require_once JPATH_ROOT . '/components/com_community/libraries/core.php';
-	require_once JPATH_ROOT . '/components/com_community/libraries/karma.php';
 	
 	class plgMintPluginname extends JPlugin
 	{
 		public function onActivity($actor, $target, $options, $record)
 		{
-		
+			if($options['type'] == CEventsHelper::_RECORD_NEW)
+			{
+				// do actions...
+			}
 		}
 	}
 
 
-- `$actor` - int - user who make an action
-- `$target` - int - user who's object affected. 
-- `$options` - array - event options. By this parameter we can get what was the event type. See table bellow.
+- `$actor` - **int** - user who make an action
+- `$target` - **int** - user who's object affected. 
+- `$options` - **array** - event options. By this parameter we can get what was the event type. See table bellow.
 - `$record` - Article object. Contain article this event is related to.
 
 For example someone rates an article. The one who rates is an `$actor`, article author is the `$target` and article is `$record`.
 
 List of `$options` parameters. For example `$options['type']`.
 
-Param | Description
+Param    | Description
 ---------|---------------
-`type` | Type of the event. The list of all event types is bellow.
+`type`   | Type of the event. The list of all event types is bellow.
 `record_id` | Id of there article affected
 `section_id` | Id of the section
 `cat_id` | Id of the category
