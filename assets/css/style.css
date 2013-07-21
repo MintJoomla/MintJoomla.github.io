@@ -11,7 +11,6 @@ header {
     background-image: url("/assets/img/hbg.png");
     padding: 20px 0;
     color: #eeeeee;
-    margin-bottom: 20px;
 }
 header .lead {
     font-weight: normal;
@@ -35,6 +34,7 @@ h3 {
     font-weight: normal;
 }
 article.post {
+    margin-top: 20px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
@@ -55,7 +55,7 @@ blockquote p {
 alert {
     margin-top: 10px;
 }
-.right li {
+.right li, .list-index li {
     margin-bottom: 8px;
 }
 .right .well {

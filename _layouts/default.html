@@ -37,7 +37,8 @@
 	<div class="container">
 		<div class="pull-right">
 			<small>
-				&copy; 2013 - <a href="http://www.mintjoomla.com">MintJoomla</a>
+				&copy; 2013 - <a href="http://www.mintjoomla.com" target="_blank">MintJoomla</a><br>
+				Site source at <a href="https://github.com/MintJoomla/MintJoomla.github.io" target="_blank">GitHub</a>
 			</small>
 		</div>
 		<div>
@@ -55,6 +56,13 @@
 	$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
 	$.each($('.post table'), function(k, v) {
 		$(v).addClass('table table-striped table-bordered');
+	});
+	var ti = $('#togg-icon');
+
+	$('#index').on('show', function(){
+		ti.attr('src', '/assets/img/control-270.png');
+	}).on('hide', function(){
+		ti.attr('src', '/assets/img/control.png');
 	});
 </script>
 </body>
