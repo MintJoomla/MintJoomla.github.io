@@ -13,6 +13,9 @@ header {
     color: #eeeeee;
     margin-bottom: 20px;
 }
+header .lead {
+    font-weight: normal;
+}
 
 footer {
     margin-top: 20px;
