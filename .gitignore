@@ -4,7 +4,6 @@ _site
 .DS_Store
 update.bat
 */Thumbs.db
-assets/mustache/
 assets/lunr.js/
 assets/bootstrap/
 assets/jquery/
