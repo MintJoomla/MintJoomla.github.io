@@ -14,6 +14,22 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic&subset=latin,cyrillic-ext'
 		  rel='stylesheet' type='text/css'>
 
+	{% raw %}
+	<script id="search-results-template" type="text/mustache">
+		{{#entries}}
+		<article>
+			<h3>
+				{{#date}}
+				<small>
+					<time datetime="{{pubdate}}" pubdate>{{displaydate}}</time>
+				</small>
+				{{/date}}
+				<a href="{{url}}">{{title}}</a>
+			</h3>
+		</article>
+		{{/entries}}
+	</script>
+	{% endraw %}
 </head>
 <body>
 
@@ -24,14 +40,34 @@
 				<img src="/assets/img/mintjoomla.png" style="max-width: 26px; margin-top: -5px;">
 				MintJoomla Documentation</a>
 
-			<form class="navbar-search pull-right">
-				<input type="text" class="search-query" placeholder="Search">
+			<form action="#" method="get" class="navbar-search pull-right">
+				<input type="text" id="search-query" name="q" class="search-query" placeholder="Search"
+					   autocomplete="off">
 			</form>
 		</div>
 	</div>
 </div>
 
-{{ content }}
+<section id="search-results" class="hide">
+	<header>
+		<div class="container">
+			<h1 class="post-title">Search Documentation</h1>
+
+			<p class="lead"></p>
+		</div>
+	</header>
+
+
+	<div class="container">
+		<article class="post">
+			<div id="search-entries"></div>
+		</article>
+	</div>
+</section>
+
+<section id="search-main">
+	{{ content }}
+</section>
 
 <footer>
 	<div class="container">
@@ -52,26 +88,75 @@
 
 <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/bootstrap/docs/assets/js/bootstrap.min.js"></script>
-<script>
-	$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
-	$.each($('article .article table'), function(k, v) {
-		$(v).addClass('table table-striped table-bordered');
-	});
-	$.each($('article .article img'), function(k, v) {
-		console.log($(v).attr('src'));
-		if($(v).attr('src') == '/assets/img/tick.png' || $(v).attr('src') == '/assets/img/cross.png') {
-			$(v).parent().css('text-align', 'center');
-			return true;
-		}
-		$(v).addClass('img-polaroid');
-	});
-	var ti = $('#togg-icon');
+<script src="/assets/lunr.js/lunr.min.js"></script>
+<script src="/assets/js/search-index.js"></script>
 
-	$('#index').on('show', function(){
-		ti.attr('src', '/assets/img/control-270.png');
-	}).on('hide', function(){
-		ti.attr('src', '/assets/img/control.png');
-	});
+<script>
+	(function($) {
+		$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
+		$.each($('article .article table'), function(k, v) {
+			$(v).addClass('table table-striped table-bordered');
+		});
+		$.each($('article .article img'), function(k, v) {
+			if($(v).attr('src') == '/assets/img/tick.png' || $(v).attr('src') == '/assets/img/cross.png') {
+				$(v).parent().css('text-align', 'center');
+				return true;
+			}
+			$(v).addClass('img-polaroid');
+		});
+		var ti = $('#togg-icon');
+		$('#index').on('show',function() {
+			ti.attr('src', '/assets/img/control-270.png');
+		}).on('hide', function() {
+					ti.attr('src', '/assets/img/control.png');
+				});
+
+		var idx = lunr(function() {
+			this.field('title', 10);
+			this.field('content');
+		})
+
+		$.each(docs, function(k, v) {
+			idx.add(v);
+		});
+
+		var list = $('#search-entries');
+
+		$("#search-query").keydown(function(e){
+			if(e.which == 13) {
+				e.preventDefault();
+			}
+		}).keyup(function(e) {
+			var val = $(this).val();
+			if(val.length >= 3) {
+				$('#search-results').show();
+				$('#search-main').hide();
+
+				list.html('');
+
+				var result = idx.search(val);
+
+				if(result.length) {
+					$.each(result, function(k, v) {
+						$(document.createElement('li')).html('<a href="http://docs.mintjoomla.com' + docs[v.ref].id + '">' + docs[v.ref].title + '</a> <small>' + docs[v.ref].intro + '</small>').appendTo(list);
+					});
+				} else {
+					list.html('<h4>Nothing found...</h4>');
+				}
+
+			} else {
+				$('#search-results').hide();
+				$('#search-main').show();
+			}
+
+		});
+
+		function search() {
+		}
+
+	}(jQuery));
+
+
 </script>
 </body>
 </html>
