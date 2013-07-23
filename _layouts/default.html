@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{{ page.title }}</title>
+	<title>{{ page.title | strip_html }}</title>
 	<meta name="viewport" content="width=device-width">
 
 	<!-- syntax highlighting CSS -->
@@ -51,7 +51,7 @@
 <section id="search-results" class="hide">
 	<header>
 		<div class="container">
-			<h1 class="post-title">Search Documentation</h1>
+			<h1>Search Documentation</h1>
 
 			<p class="lead"></p>
 		</div>

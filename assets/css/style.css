@@ -35,6 +35,15 @@ h3 {
 }
 article .article .img-polaroid {
     margin: 20px 0;
+    filter: url(filter.svg#grayscale);
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    opacity: 0.2;
+}
+article .article .img-polaroid:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    opacity: 1;
 }
 article.post {
     margin-top: 20px;

@@ -2,7 +2,7 @@
 layout: doc
 title:  "Create rule adapter"
 date:   2013-01-01 12:30:30
-tags: developer
+tags: developer other
 ---
 
 ## 1. Overview
