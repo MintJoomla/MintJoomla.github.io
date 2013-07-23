@@ -2,7 +2,7 @@
 layout: doc
 title:  "Plan actions"
 date:   2013-01-01 12:30:30
-tags: setup
+tags: plan
 ---
 
 ## Overview
@@ -28,7 +28,7 @@ To add action to plan.
 
 ## Actions list
 
-This is list of all available actions and what they can do.
+This is a list of all available actions and what they can do.
 
 Action           | Description
 -----------------|------------
@@ -39,3 +39,7 @@ iDevAffiliate    | Integrates with [iDevAffiliate](http://www.idevdirect.com/)
 Google Analytics | Add tracking code and let Google Analytics to register goal and amount paid. Then you will see your sale reports in [Google Analytics](http://www.google.com/analytics/)
 Hook URL         | Send `POST` request to given URL with purchase details.
 Custom JavaScript| Any piece of javascript code. There are a lot of applications that integrates with simple placing JS code on the page.
+
+## Custom Action
+
+You might want to create your own action. Then read [this article](http://localhost:4000/en/emerald/create-action).
