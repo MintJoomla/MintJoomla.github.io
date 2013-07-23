@@ -32,6 +32,7 @@ h3 {
 }
 .label {
     font-weight: normal;
+    margin-right: 8px;
 }
 article .article .img-polaroid {
     margin: 20px 0;
@@ -76,4 +77,37 @@ blockquote p {
 }
 .right li.active {
     font-weight: bold;
+}
+.date {
+    background-color: #c8eeac;
+    width: 57px;
+    height: 57px;
+    overflow: hidden;
+    margin-top: 25px;
+    text-align: center;
+    line-height: 16px;
+    color: darkolivegreen;
+}
+
+.date .date-month {
+    font-size: 12px;
+}
+.date .date-day {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 22px;
+    margin-top: 5px;
+}
+.date .date-year {
+    font-size: 10px;
+}
+.brand {
+    position: relative;
+}
+.version {
+    font-size: 8px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #ffd185;
 }

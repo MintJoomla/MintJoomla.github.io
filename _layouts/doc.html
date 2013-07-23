@@ -7,6 +7,9 @@ layout: post
 
 </article>
 
+{% if page.categories contains 'news' or page.categories contains 'video' %}
+
+{% else %}
 <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#index" style="margin-top: 20px">
 	<img src="/assets/img/control.png" alt="" id="togg-icon"/>
 	Other articles
@@ -29,6 +32,7 @@ layout: post
 		{% endif %}
 	</article>
 </div>
+{% endif %}
 
 <article class="post">
 	<div id="disqus_thread"></div>
