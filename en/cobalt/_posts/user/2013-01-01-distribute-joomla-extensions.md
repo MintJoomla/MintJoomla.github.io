@@ -41,7 +41,7 @@ This is what you have to insert in to extension installation XML file. We will t
 
 Pay attention on `<version>`, `<element>`, `<tag>`, `<type>` and `<downloadurl>`. Those are important parameters that have to be there. This means that at least those parameter have to be defined in our download content type.
 
-## 1. Create Coтеуте Type
+## 1. Create Content Type
 
 Create Content type _Download_ and add following fields
 

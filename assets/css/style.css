@@ -32,7 +32,7 @@ h3 {
 }
 .label {
     font-weight: normal;
-    margin-right: 8px;
+    margin-right: 0px;
 }
 article .article .img-polaroid {
     margin: 20px 0;
@@ -110,4 +110,10 @@ blockquote p {
     top: 0;
     right: 10px;
     color: #ffd185;
+}
+.widget.post h3 {
+    margin-top: 0;
+}
+.widget.post h4 {
+    margin-bottom: 0;
 }

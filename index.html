@@ -22,7 +22,7 @@ title: MintJoomla Documentation Home
 
 		<div class="row-fluid">
 			<div class="span2">
-				<img src="/assets/img/cobalt8logo.png" class="img-polaroid img-rounded" alt=""/>
+				<a href="/cobalt/"><img src="/assets/img/cobalt8logo.png" class="img-polaroid img-rounded" alt=""/></a>
 			</div>
 			<div class="span4">
 				<h2> Cobalt</h2>
@@ -36,7 +36,7 @@ title: MintJoomla Documentation Home
 
 			</div>
 			<div class="span2">
-				<img src="http://placehold.it/114" class="img-polaroid img-rounded"  alt=""/>
+				<a href="/emerald/"><img src="http://placehold.it/114" class="img-polaroid img-rounded"  alt=""/></a>
 			</div>
 			<div class="span4">
 				<h2>Emerald</h2>
@@ -49,5 +49,43 @@ title: MintJoomla Documentation Home
 			</div>
 		</div>
 	</article>
+	<div class="row-fluid">
+		<div class="span6">
+			<article class="post widget list-index">
+				<h3>Latest News</h3>
+				<ul class="unstyled">
+				{% for post in site.categories.news limit:3 %}
+					<li>
+						<a href="{{ post.url }}">{{ post.title }}</a><br>
+						<small>{{ post.date | date: "%d %h" }} <a href="{{ post.url }}#disqus_thread">Loading...</a></small>
+					</li>
+				{% endfor %}
+				</ul>
+			</article>
+		</div>
+		<div class="span6">
+			<article class="post widget list-index">
+				<h3>New Articles</h3>
+				<ul class="unstyled">
+				{% for post in site.posts limit:5 %}
+				{% if post.categories contains "video" or post.categories contains "news" %}
+				{% else %}
+				<li>
+					<a href="{{ post.url }}">{{ post.title }}</a>
+					{% for tag in post.tags %}
+					{% if tag != 'other' %}
+					<div class="label {% if tag == 'developer' %}label-warning{% else %}label-info{% endif %}">{{ tag }}</div>
+					{% endif %}
+					{% endfor %}
+					{% for cat in post.categories %}
+						<div class="label {% if cat == 'cobalt' %}label-success{% else %}{% if cat == 'ru' or cat == 'en' %}{% else %}label-inverse{% endif %}{% endif %}">{{ cat }}</div>
+					{% endfor %}
+				</li>
+				{% endif %}
+				{% endfor %}
+				</ul>
+			</article>
+		</div>
+	</div>
 </div>
 

@@ -58,6 +58,7 @@ On of the most useful helper in Cobalt API is `ItemsStore` class which allow you
 	$record = ItemsStore::getRecord($record_id);
 	$section = ItemsStore::getSection($section_id);
 	$type = ItemsStore::getType($type_id);
+	$category = ItemsStore::getCategory($cat_id);
 
 This initialise parameters as well so you can get access to type or section parameters.
 
