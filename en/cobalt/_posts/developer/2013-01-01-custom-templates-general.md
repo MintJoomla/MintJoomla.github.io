@@ -64,8 +64,7 @@ To starting developing any template you start with making copy of some existing 
 
 5. If you copy _Article List_ template, you need also change template name. Because this name later may be used in template switcher on frontend if you use more than 1 template per section. Enter name into _Change Label_ field and click _Change Label_ button.
 
-![cobalt copy template][im1]
-[im1]: /assets/img/screenshots/copytmpl.png
+![cobalt copy template](/assets/img/screenshots/copytmpl.png)
 
 
 ## 4. Find Your Template Files
