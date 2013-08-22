@@ -35,6 +35,18 @@ Every record has to important time marks. `ctime` - time of start to be shown in
 
 But very often this features are not used in the section at all. You may turn 2 section parameters "Who can see future articles" and "Who can see expired articles" to _Public_. Then this limiting condition will not be added.
 
+## Order by fields
+
+If you have a lot of articles in one section, then it is good to avoid if possible sorting them by field.
+
+DB should first order all your articles in section and only then apply limit. This require load all records to memory.
+
+## Show restricted
+
+Section has parameter "Who can see restricted". This allows to list articles that user do not have access to in the list but still not access to full view.
+
+To check restrictions in the query is an additional `WHERE` conditions in the query. So if it is not important is user can see restricted articles in the list, allow everyone see restricted articles in th list.
+
 
 
  
