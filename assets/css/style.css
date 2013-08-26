@@ -37,7 +37,7 @@ h3 {
     font-weight: normal;
     margin-right: 0px;
 }
-
+/*
 @media screen {
     article .article .img-polaroid {
         margin: 20px 0;
@@ -53,7 +53,7 @@ h3 {
         opacity: 1;
     }
 }
-
+*/
 article.post {
     margin-top: 20px;
     background-color: #ffffff;

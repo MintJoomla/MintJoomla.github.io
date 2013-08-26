@@ -107,7 +107,7 @@ You can find keys in the DB column `key` in `jos_js_res_fields` table **(1)**.
 
 ![Field key](/assets/img/screenshots/fieldkey.png)
 
-### Q: The result of the field contain HTML. How to get row text?
+### Q: The result of the field contain HTML. How to get raw text?
 
 Most simple way to get text without any HTML formatting is.
 
