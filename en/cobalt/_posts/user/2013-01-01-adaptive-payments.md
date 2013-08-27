@@ -6,7 +6,7 @@ tags: e-commerce
 intro: "Who you can get commission of every sale in your multiple vendor shop."
 ---
 
-Adaptive payments handles payments between a sender of a payment and one or more receivers of the payment. By simple words adaptive payment will allow you in your multivendor shop to get % off each sale on your site through Cobalt CCK.
+Adaptive payments handles payments between a sender of a payment and one or more receivers of the payment. By simple words adaptive payment will allow you in your multiple vendor shop to get % off each sale on your site through Cobalt CCK.
 
 ## Key Concepts
 
