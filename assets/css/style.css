@@ -37,6 +37,11 @@ h3 {
     font-weight: normal;
     margin-right: 0px;
 }
+
+article .article .img-polaroid {
+    margin: 20px 0;
+}
+
 /*
 @media screen {
     article .article .img-polaroid {
