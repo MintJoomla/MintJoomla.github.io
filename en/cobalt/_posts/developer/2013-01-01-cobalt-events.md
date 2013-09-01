@@ -6,7 +6,7 @@ tags: developer API events
 intro: "Integrate your or third party extension with Cobalt events."
 ---
 
-Cobalt has event system and trigger `onActivity` event on every action in cobalt. 
+## General
 
 You have to create Joomla plugin of `mint` group. Here is `XML`
 
@@ -32,7 +32,63 @@ You have to create Joomla plugin of `mint` group. Here is `XML`
 
 You create plugin as you create any other [Joomla plugin](http://docs.joomla.org/Creating_a_Plugin_for_Joomla/2.5).
 
-Here is sample 
+Here is sample ph php file
+
+	<?php
+	defined('_JEXEC') or die('Restricted access');
+
+	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+
+	class plgMintPluginname extends JPlugin
+	{
+
+	}
+
+
+## onAfterArticleSaved
+
+`onAfterArticleSaved` event is triggered article has been saved successfully.
+
+Here is sample
+
+	<?php
+	defined('_JEXEC') or die('Restricted access');
+
+	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+
+	class plgMintPluginname extends JPlugin
+	{
+		public function onAfterArticleSaved($isnew, $record, $fields, $section, $type)
+		{
+		    if($isnew)
+		    {
+		        // Expire in 30 days
+		        $record->extime = date('Y-m-d h:i:s', time() + (86400 * 30));
+		        $record->store();
+		    }
+
+		    foreach($fields AS $field)
+		    {
+		        if($field->type == 'myfield')
+		        {
+		            $value = $field->value;
+		        }
+		    }
+		}
+	}
+
+
+- `$isnew` - **boolean** - If this is new article or we edit article.
+- `$record` - **JTable** - JTable object.
+- `$fields` - **array** - Array of fields objects. If you have custom field you can even trigger custom field method.
+- `$section` - **object** - Section object. Includes `$section->params` where you can get all section parameters.
+- `$type` - **object** - Content Type object. Includes `$type->params` where you can get all type parameters.
+
+## onActivity
+
+`onActivity` event is triggered on every action in cobalt.
+
+Here is sample
 
 	<?php
 	defined('_JEXEC') or die('Restricted access');

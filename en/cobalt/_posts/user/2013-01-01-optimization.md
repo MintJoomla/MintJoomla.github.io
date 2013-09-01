@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: "Improve Cobalt performance"
-date: 2013-07-02 18:00:00
+date: 2013-07-22 18:00:00
 tags: other
 intro: "How to have Cobalt to work quicker."
 ---
