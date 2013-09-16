@@ -37,6 +37,18 @@ But if you need URL of the other record and you have only an ID
 
 	<?php echo JRoute::_(Url::record($record_id));?>
 
+### Q: How can I display module in template?
+
+In the template in any place you want your special module to be displayed use something like this.
+
+    $modules =& JModuleHelper::getModules('customposition');
+    foreach ($modules as $module)
+    {
+        echo '<h3>'.$module->title.'</h3>';
+        echo JModuleHelper::renderModule($module);
+    }
+
+Enter unique position name like `customposition` and place your modules to that position. It is possible to place modules to custom positions in module manager.
 
 ## Record Fields
 

@@ -3,7 +3,7 @@ layout: doc
 title:  "Cobalt events"
 date:   2013-01-01 12:30:30
 tags: developer API events
-intro: "Integrate your or third party extension with Cobalt events."
+intro: "Integrate your or third party extension with Cobalt through events."
 ---
 
 ## General
