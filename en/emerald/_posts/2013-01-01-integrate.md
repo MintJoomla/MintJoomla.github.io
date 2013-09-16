@@ -1,11 +1,11 @@
 ---
 layout: doc
-title:  "Programatic integration with Emerald"
+title:  "Programmatic integration with Emerald"
 date:   2013-09-16 12:30:30
-tags: developer
+tags: other developer
 ---
 
-This article for those who wants integrate Emerald into core of their Joomla extensions programmatically.
+This article for those who wants integrate Emerald into core of their Joomla extensions problematically.
 
 Let's assume you have categories and you want to restrict those. You can add parameters to category edit form, where administrator will select subscription plan and some other options.
 
