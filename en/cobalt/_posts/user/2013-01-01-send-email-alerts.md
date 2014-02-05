@@ -28,6 +28,14 @@ The command that you can use is this.
 
     wget http://[site name]/index.php?option=com_cobalt&task=cron.sendAlert&secret=123456
 
+Sometimes `wget` command is not accessible or not installed. In this case you might want to use `curl` or `lynx` instead. Here are some examples.
+
+    lynx -source http://[site name]/index.php?option=com_cobalt&task=cron.sendAlert&secret=123456
+
+    curl -c --url "http://[site name]/index.php?option=com_cobalt&task=cron.sendAlert&secret=123456"
+
+    curl -A "cobaltcron" "http://[site name]/index.php?option=com_cobalt&task=cron.sendAlert&secret=123456"
+
 Where `[site name]` is the root of your Joomla instance and `secret` is the secret word you set in Cobalt global configuration.
 
 ![](/assets/img/screenshots/cron-secret.png)
