@@ -34,10 +34,18 @@ XML file is very important. It is used to generate restriction rule form **(see 
             <fieldset name="rule" description="WL_DESCR">
                 <field name="cat_id" type="category" default="0" extension="com_weblinks" label="WL_CATS"/>
             </fieldset>
+            <fieldset name="count" label="X_COUNT_LIMIT" description="EM_COUNTLIMITDESCR">
+                <field name="count_limit_mode" type="list" default="0" label="X_COUNT_LIMITMODE" description="X_COUNT_LIMITMODEDESCR">
+                    <option value="0">XML_OPT_DONOTCOUNT</option>
+                    <option value="1">XML_OPT_COUNTUNIQUEURLS</option>
+                    <option value="2">XML_OPT_COUNTEVERYACCESS</option>
+                </field>
+            </fieldset>
         </fields>
     </form>
 
-- lets asume we want to restrict access to Weblimks extension categories. It users standard Joomla categories table and we can add Joomla standard  `category` element type to create dropdown list of all Weblinks categories.
+- Fieldset `<fieldset name="count">` is a required group of parameter.
+- lets assume we want to restrict access to Weblinks extension categories. It users standard Joomla categories table and we can add Joomla standard  `category` element type to create dropdown list of all Weblinks categories.
 - Although we can select only one category, we can create few rules. In fact it does not matter. We can add `multiple="true"` and select multiple categories.
 - `<fields>` element have to have `rule` name attribute.
 - You can add as many `<fieldsets>` elements as you which. In fact if you have many parameters, it is even highly recommended to keep them organized and easy to use.
