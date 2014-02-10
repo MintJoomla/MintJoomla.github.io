@@ -64,8 +64,7 @@ To starting developing any template you start with making copy of some existing 
 
 5. If you copy _Article List_ template, you need also change template name. Because this name later may be used in template switcher on frontend if you use more than 1 template per section. Enter name into _Change Label_ field and click _Change Label_ button.
 
-![cobalt copy template][im1]
-[im1]: /assets/img/screenshots/copytmpl.png
+![cobalt copy template](/assets/img/screenshots/copytmpl.png)
 
 
 ## 4. Find Your Template Files
@@ -94,7 +93,7 @@ Then you may create files
 - `default_record_default.png` - Small screenshot of your template to preview in template manager. The usually size is not more than 300x300px. But you may do it bigger. it is not required. You can add it if you want to distribute your template later on.
 - `default_record_default.xml` - contain information of template author and template parameters. How to use parameters read in next chapter. 
 
-## 7. Template Parameters 
+## 6. Template Parameters 
 
 For most effective template creation you may use template parameters. You may add your own parameters that may affect template style or field positions or make any other influence you want.
 
@@ -168,7 +167,8 @@ Where `tmpl_params` of `tmpl_params.item_icon_title` the name of the parameters 
 		<option value="1">CYES</option>
 	</field>
 
-## 8. Customize Templates
+
+## 7. Customize Templates
 
 There are slight differences and purses for every template. There are different article for different templates.
 
@@ -176,7 +176,7 @@ There are slight differences and purses for every template. There are different 
 - [Customize field templates](/en/cobalt/custom-templates-fields/)
 - [Customize form templates](/en/cobalt/custom-templates-form/)
 
-## 9. Create Installation Package 
+## 8. Create Installation Package 
 
 There is 2 ways of creating installation package. First is very simple. Just pack all files in to zip. If you pack few templates you may arrange files in to sub folders, but actually no matter how you packed them, installer will determine by name the purpose of the file and copy it to correct location. 
 

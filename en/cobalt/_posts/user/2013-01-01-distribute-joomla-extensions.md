@@ -41,7 +41,7 @@ This is what you have to insert in to extension installation XML file. We will t
 
 Pay attention on `<version>`, `<element>`, `<tag>`, `<type>` and `<downloadurl>`. Those are important parameters that have to be there. This means that at least those parameter have to be defined in our download content type.
 
-### 1. Create Coтеуте Type
+## 1. Create Content Type
 
 Create Content type _Download_ and add following fields
 
@@ -60,7 +60,7 @@ This is how type may looks
 
 ![Download content type](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/updatetype.png)
 
-### 2. Create Menu Link
+## 2. Create Menu Link
 
 Now you have to create menu link type _Cobalt -> Update Server_. 
 
@@ -70,7 +70,7 @@ In the parameters associate all the fields.
 
 ![params set](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/updatelinkparams.png)
 
-### 3. Get Generated Codes
+## 3. Get Generated Codes
 
 As finalisation of this process, open link you have just created. You will see list of your listings and their codes.
 
@@ -80,8 +80,12 @@ Just insert those in to your installation XML of your extensions. That is it. Bu
 
 ![code generated](http://serhioromano.s3.amazonaws.com/mintjoomla/tutorial-customtmpl/generatedxml.png)
 
-### 4. Conclusion
+## 4. Conclusion
 
 Now when you update your listings on the site, change version, upload new file, … it will automatically feed all your clients with update information. All in one place. You do not need to update anything else. just work with your download listing.
 
 Although there are some things out there, Cobalt 8, may be considered as ONLY solution to distribute Joomla Extensions.
+
+## 5. Video Introduction
+
+<iframe width="853" height="480" src="//www.youtube.com/embed/4OxqJJDrf50?list=PLB88FCCF99077A615" frameborder="0" allowfullscreen></iframe>

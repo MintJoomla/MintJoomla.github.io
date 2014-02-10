@@ -95,7 +95,7 @@ Sometimes you need to reset all filters by URL or single filter.
 #### Reset all filters
 
     index.php?option=com_cobalt
-         &task=records.clean
+         &task=records.cleanall
          &section_id=2 
          &itemid=123
 

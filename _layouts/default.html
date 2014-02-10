@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{{ page.title }}</title>
+	<title>{{ page.title | strip_html }}</title>
 	<meta name="viewport" content="width=device-width">
 
 	<!-- syntax highlighting CSS -->
@@ -13,7 +13,6 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic&subset=latin,cyrillic-ext'
 		  rel='stylesheet' type='text/css'>
-
 </head>
 <body>
 
@@ -22,16 +21,43 @@
 		<div class="container">
 			<a class="brand" href="/">
 				<img src="/assets/img/mintjoomla.png" style="max-width: 26px; margin-top: -5px;">
-				MintJoomla Documentation</a>
+				MintJoomla Documentation
+			<div class="version">{{ site.version }}</div>
+			</a>
+			<ul class="nav">
+				<li><a href="/">Docs</a></li>
+				<li><a href="/video/">Video</a></li>
+				<li><a href="/news/">News</a></li>
+			</ul>
 
-			<form class="navbar-search pull-right">
-				<input type="text" class="search-query" placeholder="Search">
+			<form action="#" method="get" class="navbar-search pull-right">
+				<input type="text" id="search-query" name="q" class="search-query" placeholder="Search"
+					   autocomplete="off">
 			</form>
 		</div>
 	</div>
 </div>
 
-{{ content }}
+<section id="search-results" class="hide">
+	<header>
+		<div class="container">
+			<h1>Search Documentation</h1>
+
+			<p class="lead"></p>
+		</div>
+	</header>
+
+
+	<div class="container">
+		<article class="post">
+			<div id="search-entries"></div>
+		</article>
+	</div>
+</section>
+
+<section id="search-main">
+	{{ content }}
+</section>
 
 <footer>
 	<div class="container">
@@ -52,26 +78,79 @@
 
 <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/bootstrap/docs/assets/js/bootstrap.min.js"></script>
-<script>
-	$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
-	$.each($('article .article table'), function(k, v) {
-		$(v).addClass('table table-striped table-bordered');
-	});
-	$.each($('article .article img'), function(k, v) {
-		console.log($(v).attr('src'));
-		if($(v).attr('src') == '/assets/img/tick.png' || $(v).attr('src') == '/assets/img/cross.png') {
-			$(v).parent().css('text-align', 'center');
-			return true;
-		}
-		$(v).addClass('img-polaroid');
-	});
-	var ti = $('#togg-icon');
+<script type="text/javascript" src="/assets/js/xregex.js"></script>
+<script type="text/javascript" src="/assets/js/unicode.base.js"></script>
+<script type="text/javascript" src="/assets/lunr.js/lunr.min.js"></script>
+<script type="text/javascript" src="/assets/js/search-index.js"></script>
 
-	$('#index').on('show', function(){
-		ti.attr('src', '/assets/img/control-270.png');
-	}).on('hide', function(){
-		ti.attr('src', '/assets/img/control.png');
-	});
+<script>
+	(function($) {
+		$(".breadcrumb li").last().addClass('active').html('<span class="divider">&#187;</span> ' + $('.post-title').text());
+		$.each($('article .article table'), function(k, v) {
+			$(v).addClass('table table-striped table-bordered');
+		});
+		$.each($('article .article img'), function(k, v) {
+			if($(v).attr('src') == '/assets/img/tick.png' || $(v).attr('src') == '/assets/img/cross.png') {
+				$(v).parent().css('text-align', 'center');
+				return true;
+			}
+			$(v).addClass('img-polaroid');
+		});
+		var ti = $('#togg-icon');
+		$('#index').on('show',function() {
+			ti.attr('src', '/assets/img/control-270.png');
+		}).on('hide', function() {
+					ti.attr('src', '/assets/img/control.png');
+				});
+
+		var idx = lunr(function() {
+			this.field('title', 10);
+			this.field('content');
+		})
+
+		$.each(docs, function(k, v) {
+			idx.add(v);
+		});
+
+		var list = $('#search-entries');
+
+		$("#search-query").keydown(function(e){
+			if(e.which == 13) {
+				e.preventDefault();
+			}
+		}).keyup(function(e) {
+			var val = $(this).val();
+			if(val.length >= 3) {
+				$('#search-results').show();
+				$('#search-main').hide();
+
+				list.html('');
+
+				var result = idx.search(val);
+
+				if(result.length) {
+					$.each(result, function(k, v) {
+						$(document.createElement('li')).html('<a href="http://docs.mintjoomla.com' + docs[v.ref].id + '">' + docs[v.ref].title + '</a> <small>' + docs[v.ref].intro + '</small>').appendTo(list);
+					});
+				} else {
+					list.html('<h4>Nothing found...</h4>');
+				}
+
+			} else {
+				$('#search-results').hide();
+				$('#search-main').show();
+			}
+
+		});
+	}(jQuery));
+</script>
+<script type="text/javascript">
+	var disqus_shortname = 'mintjoomladocumentation';
+	(function(d) {
+		var dsq = d.createElement('script');
+		dsq.type = 'text/javascript'; dsq.async = true;	dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(dsq);
+	})(document);
 </script>
 </body>
 </html>

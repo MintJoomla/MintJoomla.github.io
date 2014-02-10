@@ -1,8 +1,16 @@
 name: MintJoomla Documentation Home
-markdown: redcarpet
 pygments: true
 permalink: /:categories/:title
-exclude: ['./bower.json', './package.json']
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+exclude: ["./bower.json", "./package.json"]
+version: 1.0 Beta
+markdown: kramdown
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]

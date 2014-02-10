@@ -108,7 +108,7 @@ Commerce Form Elements	| Поля для электронной коммерци
 Exclusive Form Elements	| Различные эксклюзивные поля.
 Relation Form Elements	| Поля для создания связей между элементами контекста и отображающие списки связанных элементов.
 
-[2]: {% post_url 2013-01-01-what-is-ssi %}
+[2]: /en/cobalt/what-is-ssi/
 
 ### Раздел `<config>`
 

@@ -12,6 +12,7 @@ header {
     padding: 20px 0;
     color: #eeeeee;
 }
+
 header .lead {
     font-weight: normal;
 }
@@ -27,22 +28,44 @@ h1, h2, h3, h4, h5 {
 h2 {
     color: royalblue;
 }
+
 h3 {
     color: steelblue;
 }
+
 .label {
     font-weight: normal;
+    margin-right: 0px;
 }
+
 article .article .img-polaroid {
     margin: 20px 0;
 }
+
+/*
+@media screen {
+    article .article .img-polaroid {
+        margin: 20px 0;
+        filter: url(filter.svg#grayscale);
+        filter: gray;
+        -webkit-filter: grayscale(1);
+        opacity: 0.2;
+    }
+
+    article .article .img-polaroid:hover {
+        filter: none;
+        -webkit-filter: grayscale(0);
+        opacity: 1;
+    }
+}
+*/
 article.post {
     margin-top: 20px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
-    -webkit-box-shadow:  0px 0px 10px 5px rgba(0, 0, 0, 0.09);
-    box-shadow:  0px 0px 10px 5px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.09);
     border: 1px solid #c7c7c7;
     font-size: 15px;
     font-weight: 100;
@@ -51,6 +74,7 @@ article.post {
 .post-title {
     margin-bottom: 20px;
 }
+
 blockquote p {
     margin-bottom: 10px;
 }
@@ -58,13 +82,62 @@ blockquote p {
 .alert {
     margin-top: 10px;
 }
+
 .right li, .list-index li {
     margin-bottom: 8px;
 }
+
 .right .well {
-    -webkit-box-shadow:  0px 0px 10px 5px rgba(0, 0, 0, 0.09);
-    box-shadow:  0px 0px 10px 5px rgba(0, 0, 0, 0.09);
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.09);
 }
+
 .right li.active {
     font-weight: bold;
+}
+
+.date {
+    background-color: #c8eeac;
+    width: 57px;
+    height: 57px;
+    overflow: hidden;
+    margin-top: 25px;
+    text-align: center;
+    line-height: 16px;
+    color: darkolivegreen;
+}
+
+.date .date-month {
+    font-size: 12px;
+}
+
+.date .date-day {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 22px;
+    margin-top: 5px;
+}
+
+.date .date-year {
+    font-size: 10px;
+}
+
+.brand {
+    position: relative;
+}
+
+.version {
+    font-size: 8px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #ffd185;
+}
+
+.widget.post h3 {
+    margin-top: 0;
+}
+
+.widget.post h4 {
+    margin-bottom: 0;
 }

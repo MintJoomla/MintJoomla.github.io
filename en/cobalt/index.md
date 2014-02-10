@@ -1,5 +1,5 @@
 ---
-layout: toc
+layout: post
 title: Cobalt 8 documentation
 ---
 

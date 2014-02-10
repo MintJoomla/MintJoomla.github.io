@@ -1,1 +1,53 @@
-Emerald english index
+<div class="row-fluid list-index">
+	<div class="span4">
+		<h3>Setup</h3>
+		<ul class="unstyled">
+			{% for post in site.tags.setup %}
+			{% if post.categories contains "en" and post.categories contains "emerald" %}
+			<li>
+				<a href="{{ post.url }}">{{ post.title }}</a>
+				{% for tag in post.tags %}
+				{% if tag != 'setup' %}
+				<div class="label {% if tag == 'developer' %}label-warning{% else %}label-info{% endif %}">{{ tag }}</div>
+				{% endif %}
+				{% endfor %}
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="span4">
+		<h3>Plans</h3>
+		<ul class="unstyled">
+			{% for post in site.tags.plan %}
+			{% if post.categories contains "en" and post.categories contains "emerald" %}
+			<li>
+				<a href="{{ post.url }}">{{ post.title }}</a>
+				{% for tag in post.tags %}
+				{% if tag != 'plan' %}
+				<div class="label {% if tag == 'developer' %}label-warning{% else %}label-info{% endif %}">{{ tag }}</div>
+				{% endif %}
+				{% endfor %}
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="span4">
+		<h3>Other</h3>
+		<ul class="unstyled">
+			{% for post in site.tags.other %}
+			{% if post.categories contains "en" and post.categories contains "emerald" %}
+			<li>
+				<a href="{{ post.url }}">{{ post.title }}</a>
+				{% for tag in post.tags %}
+				{% if tag != 'other' %}
+				<div class="label {% if tag == 'developer' %}label-warning{% else %}label-info{% endif %}">{{ tag }}</div>
+				{% endif %}
+				{% endfor %}
+			</li>
+			{% endif %}
+			{% endfor %}
+		</ul>
+	</div>
+</div>
