@@ -36,7 +36,11 @@ tags: fields developer
 
 Поле `simpletext_import`.
 
-**Часть 6. [Установочный пакет](/ru/cobalt/create-cobalt-field-package/).**
+**Часть 6. [Использование AJAX и MVC](/ru/cobalt/create-cobalt-field-interface/).**
+
+У полей Кобальт есть специальный интерфейс когда вы можете нарисовать страницу при помощи метода поля, или вызвать аякс через метод поля.
+
+**Часть 7. [Установочный пакет](/ru/cobalt/create-cobalt-field-package/).**
 
 Основные принципы создания установочных пакетов Joomla. Создания поля с возможностью инсталляции стандартным установщиком Joomla `simpletext_installation`.
 
