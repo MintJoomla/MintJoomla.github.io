@@ -12,9 +12,12 @@ Emerald 9 has completely new DB structure. Thus simple update of extension will 
 <div class="alert alert-error">This is most crucial step. Please make backup of your Joomla DB before you proceed.</div>
 
 There are 2 methods to update your Joomla. Some update 2.5 to 3, some setup from new Joomla 3.x.
-It does not matter what method you are using, you have to make sure that all tables `_jcs_*` are in the same database where your Emerald 9 is installed.
+It does not matter what method you are using, you have to make sure:
 
-If you updated Joomla from 1.5-2.5 to 3.x, then those tables should be already there. If you install Joomla 3.x from scratch, you have to dump those tables from old site DB and upload then to new DB. Make sure table prefixes are the same.
+1. All tables `_jcs_*` are in the same database where your Emerald 9 is installed.
+2. Users from old site are all in new Joomla 3 DB with the same IDs.
+
+If you updated Joomla from 1.5-2.5 to 3.x, then those tables should be already there. If you install Joomla 3.x from scratch, you have to dump `_jcs_*` tables from old site DB and upload then to new DB. You have to also move your users to new site. Make sure table prefixes are the same.
 
 ## Step 2
 
