@@ -1,24 +1,20 @@
 ---
 layout: doc
-title:  "Migration from Emerald 9 or Mighty Membership"
+title:  "Migration from Emerald 8 or Mighty Membership"
 date:   2013-07-01 12:30:30
 tags: setup
 ---
 
-Emerald 9 has completely new DB structure. Thus simple update of extension will work. You have to migrate. Amd Emerald out of the box has migration plugin for Emerald 8 and Mighty membership.
+Emerald 9 has completely new DB structure. Thus simple update of extension will work. You have to migrate. And Emerald 9 out of the box has migration plugin for Emerald 8 and Mighty Membership.
 
 ## Step 1
 
 <div class="alert alert-error">This is most crucial step. Please make backup of your Joomla DB before you proceed.</div>
 
-Delete Emerald 8 or Mighty Membership extension. But be sure, `_jcs_plans` and `_jcs_user_subscr` tables are not deleted. For that FTP your site to `administrator/components/com_[emerald|jcs]/sql/uninstall.utf8.php` and delete from there.
+There are 2 methods to update your Joomla. Some update 2.5 to 3, some setup from new Joomla 3.x.
+It does not matter what method you are using, you have to make sure that all tables `_jcs_*` are in the same database where your Emerald 9 is installed.
 
-    DROP TABLE IF EXISTS `#__jcs_plans`;
-    DROP TABLE IF EXISTS `#__jcs_user_subscr`;
-
-This way, when you uninstall Emerald or Mighty Membership, those tables will not be deleted.
-
-Now you can safely uninstall Emerald or Mighty Membership.
+If you updated Joomla from 1.5-2.5 to 3.x, then those tables should be already there. If you install Joomla 3.x from scratch, you have to dump those tables from old site DB and upload then to new DB. Make sure table prefixes are the same.
 
 ## Step 2
 
