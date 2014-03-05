@@ -42,4 +42,4 @@ Custom JavaScript| Any piece of javascript code. There are a lot of applications
 
 ## Custom Action
 
-You might want to create your own action. Then read [this article](http://localhost:4000/en/emerald/create-action).
+You might want to create your own action. Then read [this article](/en/emerald/create-action).

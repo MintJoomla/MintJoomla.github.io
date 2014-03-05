@@ -41,6 +41,13 @@ XML file is very important. It is used to generate restriction rule form **(see 
                     <option value="2">XML_OPT_COUNTEVERYACCESS</option>
                 </field>
             </fieldset>
+            <fieldset name="core" label="EM_CORE">
+                <field name="count_limit_mode" type="radio" class="btn-group" default="0" label="EM_COUNT_USAGE">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="message" type="text" multiple="true" label="EM_RESCR_MSG" default="You cannot access this page"/>
+            </fieldset>
         </fields>
     </form>
 
@@ -48,6 +55,7 @@ XML file is very important. It is used to generate restriction rule form **(see 
 - lets assume we want to restrict access to Weblinks extension categories. It users standard Joomla categories table and we can add Joomla standard  `category` element type to create dropdown list of all Weblinks categories.
 - Although we can select only one category, we can create few rules. In fact it does not matter. We can add `multiple="true"` and select multiple categories.
 - `<fields>` element have to have `rule` name attribute.
+- Fieldset `<fieldset name="core">` is required set of parameters for every rule.
 - You can add as many `<fieldsets>` elements as you which. In fact if you have many parameters, it is even highly recommended to keep them organized and easy to use.
 - You can use `<fieldsets>` attribute `description` to add general information about this restriction rule adapter **(see pic. green)**.
 
