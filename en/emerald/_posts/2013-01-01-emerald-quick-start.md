@@ -154,7 +154,7 @@ Here you can setup what email messages will be sent to user. One important note 
 
 You also have to configure cron task in order expire alerts to be sent. Cron is triggered through URL. You can set following cron task at least once a day.
 
-    wget http://mysite.com/index.php?option=com_emerald&task=cron.send_expire_alerts&secret=123456
+    wget http://mysite.com/index.php?option=com_emerald&task=emcron.send_expire_alerts&secret=123456
 
 Where `secret` is a text that you set in Emerald global parameters.
 

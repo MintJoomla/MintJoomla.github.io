@@ -17,7 +17,7 @@ Lets assume we are creating PayPal payment gateway. Create files in `components/
 |-- paypal.xml
 |-- paypal.png
 |-- en-GB.com_emerald_gateway_paypal.ini
-|-- index.html
+`-- index.html
 ```
 
 This is minimum set of files wee need. You do not need to install it into the system or go through any process to enable it in Emerald. Emerald will find it.
@@ -26,7 +26,7 @@ This is minimum set of files wee need. You do not need to install it into the sy
 
 ### HTML
 
-`index.html` is an empty file for security reasons. it is general requirement for Joomla extensions development.
+`index.html` is an empty file for security reason. it is general requirement for Joomla extensions development.
 
 ### PNG
 
@@ -36,7 +36,7 @@ Png file is used to render button. So you can use PayPal logo, Visa and Masterca
 
 ### INI
 
-This is language file. It will not work out of that directory, it have to be in language folder, but it will be used from there for instillation.
+This is language file. It will not work out of that directory, it has to be in language folder, but it will be used from there for instillation.
 
 Example content is 
 
