@@ -148,12 +148,12 @@ Class name should be `EmeraldGateway` + capitalize name of gateway plugin in our
 
 This is method that receive payment details and redirect user to payment gateway checkout page.
 
-Param | Description
----|---
+Param     | Description
+----------|---
 `$amount` | Amount to be paid
-`$name` | Text variable is a description of payment.
+`$name`   | Text variable is a description of payment.
 `$subscription` | `JTable` object of created but not yet activated user subscription
-`$plan` | Object that contains plan info.
+`$plan`   | Object that contains plan info.
 
 Here is the example how that method may be used.
 
@@ -204,37 +204,35 @@ this method is called when payment gateway sends callback or notification to you
 The main addis here is to verify transaction and set correct value for `$subscription->published`.
 
 
-```
-function accept(&$subscription, $plan)
-{
-	$this->log('Start check PayPal');
-
-	if(!$this->_IPNcheck())
+	function accept(&$subscription, $plan)
 	{
-		$this->setError(JText::_('EMR_CANNOT_VERYFY'));
-		$this->log('PayPal: Verification failed', $_POST);
+		$this->log('Start check PayPal');
+	
+		if(!$this->_IPNcheck())
+		{
+			$this->setError(JText::_('EMR_CANNOT_VERYFY'));
+			$this->log('PayPal: Verification failed', $_POST);
+	
+			return FALSE;
+		}
 
-		return FALSE;
+		$post = JFactory::getApplication()->input->post;
+	
+		$subscription->gateway_id = $this->get_gateway_id();	switch($post->get('payment_status'))
+		{
+			case 'Processed' :
+			case 'Completed' :
+				$subscription->published = 1;
+				break;
+			case 'Refunded' :
+				$subscription->published = 0;
+				break;
+		}
+	
+		$this->log('End paypal check', $subscription);
+	
+		return TRUE;
 	}
-
-	$post = JFactory::getApplication()->input->post;
-
-	$subscription->gateway_id = $this->get_gateway_id();	switch($post->get('payment_status'))
-	{
-		case 'Processed' :
-		case 'Completed' :
-			$subscription->published = 1;
-			break;
-		case 'Refunded' :
-			$subscription->published = 0;
-			break;
-	}
-
-	$this->log('End paypal check', $subscription);
-
-	return TRUE;
-}
-```
 
 1. You have to return `TRUE` or `FALSE`. Unless you return `TRUE` no post action will be taken.
 2. Set `$subscription->published` to `1` if payment is successful and `0` if not or on refunds and charge backs.
@@ -246,44 +244,40 @@ Now it is time to pack your plugin to install it if you want to distribute it.
 
 Create Joomla install file `install.xml`.
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<extension version="3.0" type="file" method="upgrade">
-	<name>Emerald - Gateway - PayPal</name>
-	<author>MintJoomla</author>
-	<license>GPL GNU</license>
-	<authorEmail>***@mintjoomla.com</authorEmail>
-	<authorUrl>http://www.mintjoomla.com</authorUrl>
-	<creationDate>March 2012</creationDate>
-	<copyright>(c) 2012 MintJoomla</copyright>
-	<version>9.21</version>
-	<description>Payment processor</description>
-
-	<fileset>
-		<files target="components/com_emerald/library/gateways">
-			<folder>paypal</folder>
-		</files>
-		<files folder="paypal" target="language/en-GB">
-			<filename>en-GB.com_emerald_gateway_paypal.ini</filename>
-		</files>
-	</fileset>
-</extension>
-```
+	<?xml version="1.0" encoding="utf-8"?>
+	<extension version="3.0" type="file" method="upgrade">
+		<name>Emerald - Gateway - PayPal</name>
+		<author>MintJoomla</author>
+		<license>GPL GNU</license>
+		<authorEmail>***@mintjoomla.com</authorEmail>
+		<authorUrl>http://www.mintjoomla.com</authorUrl>
+		<creationDate>March 2012</creationDate>
+		<copyright>(c) 2012 MintJoomla</copyright>
+		<version>9.21</version>
+		<description>Payment processor</description>
+	
+		<fileset>
+			<files target="components/com_emerald/library/gateways">
+				<folder>paypal</folder>
+			</files>
+			<files folder="paypal" target="language/en-GB">
+				<filename>en-GB.com_emerald_gateway_paypal.ini</filename>
+			</files>
+		</fileset>
+	</extension>
 
 Of course you have to change all `paypal` to your gateway name. And `<version>` have to start with `9.` for Emerald `9` series.
 
 Now create a zip archive of following structure.
 
-```
-+ gateway_paypal.v.9.34.zip
-|--+ paypal
-|  |-- paypal.php
-|  |-- paypal.xml
-|  |-- paypal.png
-|  |-- en-GB.com_emerald_gateway_paypal.ini
-|  `-- index.html
-`-- install.xml
-```
+	+ gateway_paypal.v.9.34.zip
+	|--+ paypal
+	|  |-- paypal.php
+	|  |-- paypal.xml
+	|  |-- paypal.png
+	|  |-- en-GB.com_emerald_gateway_paypal.ini
+	|  `-- index.html
+	`-- install.xml
 
 This should be ok to install through Joomla extension manager. 
 
