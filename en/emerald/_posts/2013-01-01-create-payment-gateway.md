@@ -11,14 +11,15 @@ Payment gateway interface is very simple and contain only 2 methods. You will fi
 
 Lets assume we are creating PayPal payment gateway. Create files in `components/com_emerald/library/gateways`
 
-```
-+ paypal
-|-- paypal.php
-|-- paypal.xml
-|-- paypal.png
-|-- en-GB.com_emerald_gateway_paypal.ini
-`-- index.html
-```
+
+
+	+ paypal
+	|-- paypal.php
+	|-- paypal.xml
+	|-- paypal.png
+	|-- en-GB.com_emerald_gateway_paypal.ini
+	`-- index.html
+
 
 This is minimum set of files wee need. You do not need to install it into the system or go through any process to enable it in Emerald. Emerald will find it.
 
@@ -40,24 +41,24 @@ This is language file. It will not work out of that directory, it has to be in l
 
 Example content is 
 
-```
-PP_ACOUNT="PayPal email"
-PP_CURRENCY="Transaction currency"
-PP_TAX="Tax (E.g. 0.55)"
-PP_SHIP_1="Prompt for an address, but do not require one"
-PP_SHIP_2="Do not prompt for an address"
-PP_SHIP_3="Prompt for an address, and require one"
 
-```
+
+	PP_ACOUNT="PayPal email"
+	PP_CURRENCY="Transaction currency"
+	PP_TAX="Tax (E.g. 0.55)"
+	PP_SHIP_1="Prompt for an address, but do not require one"
+	PP_SHIP_2="Do not prompt for an address"
+	PP_SHIP_3="Prompt for an address, and require one"
+
+
 
 ### XML
 
 XML file contain gateway parameters. There are 2 required `<fieldset>` groups. Here is what minimum XML file for PayPal gateway would look like.
 
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<gateway>
+	<?xml version="1.0" encoding="utf-8"?>
+	<gateway>
 	<name>PayPal</name>
 	<config>
 		<fields name="paypal">
@@ -69,12 +70,12 @@ XML file contain gateway parameters. There are 2 required `<fieldset>` groups. H
 				<field name="label" size="50" type="text" default="Pay with paypal" label="ELABEL" description="E_LABEDESCR"/>
 				<field name="image" type="imagelist" directory="/components/com_emerald/library/gateways/paypal" hide_default="1" default="2co1.gif" label="EIMAGE" description="PARAMIMAGE"/>
 			</fieldset>
-			
+	
 			<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
-				
-
+	
+	
 			</fieldset>
-			
+	
 			<fieldset name="dev" label="EMR_DEV" description="EMR_DEV_DESCR">
 				<field name="errorlog" type="radio" class="btn-group" default="0" label="EMR_ERROR_LOG" >
 					<option value="1">Yes</option>
@@ -87,8 +88,7 @@ XML file contain gateway parameters. There are 2 required `<fieldset>` groups. H
 			</fieldset>
 		</fields>
 	</config>
-</gateway>
-```
+	</gateway>
 
 Here are few things you have to know about this example.
 
@@ -100,49 +100,47 @@ Here are few things you have to know about this example.
 
 The example `<fieldset name="settings">` would look like this:
 
-```
-<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
-	<field name="email" type="text" label="PP_ACOUNT"/>
-	<field name="lc" type="text" default="EN" label="PP_LANG" description="PP_LANG_DESCR"/>
-	<field name="currency" type="list" default="USD" label="PP_CURRENCY">
-		<option value="USD">U.S. Dollars (USD)</option>
-		<option value="EUR">Euros (EUR)</option>
-	</field>
-	<field name="tax" type="text" default="0.00" label="PP_TAX"/>
-	<field name="ship" type="list" class="btn-group" label="PP_SHIP" default="1">
-		<option value="0">PP_SHIP_1</option>
-		<option value="1">PP_SHIP_2</option>
-		<option value="2">PP_SHIP_3</option>
-	</field>
-</fieldset>
-```
+	<fieldset name="settings" label="ESETTINGS" description="PP_MAIN_DESCR">
+		<field name="email" type="text" label="PP_ACOUNT"/>
+		<field name="lc" type="text" default="EN" label="PP_LANG" description="PP_LANG_DESCR"/>
+		<field name="currency" type="list" default="USD" label="PP_CURRENCY">
+			<option value="USD">U.S. Dollars (USD)</option>
+			<option value="EUR">Euros (EUR)</option>
+		</field>
+		<field name="tax" type="text" default="0.00" label="PP_TAX"/>
+		<field name="ship" type="list" class="btn-group" label="PP_SHIP" default="1">
+			<option value="0">PP_SHIP_1</option>
+			<option value="1">PP_SHIP_2</option>
+			<option value="2">PP_SHIP_3</option>
+		</field>
+	</fieldset>
+
 
 ### PHP
 
 Now lets create php file. Here is the minimum we need.
 
-```
-<?php
-defined('_JEXEC') or die('Restricted access');
+	<?php
+	defined('_JEXEC') or die('Restricted access');
 
-class EmeraldGatewayPaypal extends EmeraldGateway
-{
-	public function accept(&$subscription, $plan)
+	class EmeraldGatewayPaypal extends EmeraldGateway
 	{
+		public function accept(&$subscription, $plan)
+		{
+		}
+
+		public function pay($amount, $name, $subscription, $plan)
+		{
+		}	
+
+		public function get_gateway_id()
+		{
+		}
+		public function get_subscrption_id($who = NULL)
+		{
+		}
 	}
 
-	public function pay($amount, $name, $subscription, $plan)
-	{
-	}
-
-	public function get_gateway_id()
-	{
-	}
-	public function get_subscrption_id($who = NULL)
-	{
-	}
-}
-```
 
 Class name should be `EmeraldGateway` + capitalize name of gateway plugin in our case `Paypal`. Total is `EmeraldGatewayPaypal`.
 
@@ -160,36 +158,35 @@ Param | Description
 Here is the example how that method may be used.
 
 
-```
-function pay($amount, $name, $subscription, $plan)
-{
-	if(!$this->params->get('email'))
+
+	function pay($amount, $name, $subscription, $plan)
 	{
-		$this->setError(JText::_('PP_ERR_NOEMAIL'));
-		return FALSE;
+		if(!$this->params->get('email'))
+		{
+			$this->setError(JText::_('PP_ERR_NOEMAIL'));
+			return FALSE;
+		}	
+
+		$params = $this->params;
+
+		$param['notify_url'] = $this->_get_notify_url($subscription->id);
+		$param['return']        = $this->_get_return_url($subscription->id);
+		$param['cancel_return'] = $this->_get_return_url($subscription->id);	
+
+		$param['cmd']     = "_xclick";
+		$param['amount']  = floatval($amount);
+		$param['business']      = $params->get('email');
+		$param['item_name']     = $name;
+		$param['currency_code'] = $params->get('currency', 'USD');
+
+		$url = 'https://www.paypal.com/us/cgi-bin/webscr?' . http_build_query($param);
+		if($params->get('sandbox'))
+		{
+			$url = 'https://www.sandbox.paypal.com/cgi-bin/webscr?' . http_build_query($param);
+		}
+
+		JFactory::getApplication()->redirect($url);
 	}
-
-	$params = $this->params;
-
-	$param['notify_url'] = $this->_get_notify_url($subscription->id);
-	$param['return']        = $this->_get_return_url($subscription->id);
-	$param['cancel_return'] = $this->_get_return_url($subscription->id);
-
-	$param['cmd']     = "_xclick";
-	$param['amount']  = floatval($amount);
-	$param['business']      = $params->get('email');
-	$param['item_name']     = $name;
-	$param['currency_code'] = $params->get('currency', 'USD');
-
-	$url = 'https://www.paypal.com/us/cgi-bin/webscr?' . http_build_query($param);
-	if($params->get('sandbox'))
-	{
-		$url = 'https://www.sandbox.paypal.com/cgi-bin/webscr?' . http_build_query($param);
-	}
-
-	JFactory::getApplication()->redirect($url);
-}
-```
 
 1. To access parameters you simply use `$this->params`.
 2. We start with check that all parameters of gateway was set.
@@ -205,6 +202,7 @@ function pay($amount, $name, $subscription, $plan)
 this method is called when payment gateway sends callback or notification to your server. it is triggered through link created by `$this->_get_notify_url($subscription->id)` in `pay()` method.
 
 The main addis here is to verify transaction and set correct value for `$subscription->published`.
+
 
 ```
 function accept(&$subscription, $plan)
@@ -248,7 +246,7 @@ Now it is time to pack your plugin to install it if you want to distribute it.
 
 Create Joomla install file `install.xml`.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.0" type="file" method="upgrade">
 	<name>Emerald - Gateway - PayPal</name>

@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Payed Accounts"
+title:  "Paid Accounts"
 date:   2013-01-01 12:30:30
 intro: "How to setup subscription during registration."
 tags: setup
