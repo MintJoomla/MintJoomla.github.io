@@ -45,9 +45,17 @@ And then in Joomla language overrides in language manager you can add translatio
 
 This is it. 
 
-This technique is good not only for translation, also if you want to use HTML in values with pictures and other elements.
+> This technique is good not only for translation, also if you want to use HTML in values with pictures and other elements.
 
-This translation technique is used for all labels in template parameters as well. For example you can use keys in template parameters.
+This translation technique may be also used for all
+
+- Filed label
+- Field description
+- Categoty name and description
+- Section name and descritpion
+- Type name and description
+
+And also you can use it anywheer in parameters where you enter text. For example you can use keys in template parameters.
 
 ![labels](/assets/img/screenshots/ml_labels.png)
 
