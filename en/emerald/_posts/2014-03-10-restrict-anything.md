@@ -7,7 +7,7 @@ tags: setup
 
 Often you will need to restrict part of the text on the page. May be hide module position or one paragraph in text content.
 
-### Overview 
+### [PAID] 
 
 Just embrace part of the text you want to hide into `[PAID=JSON]Some test here[/PAID]` and this text will be hidden.
 
@@ -33,3 +33,13 @@ Param | Descritpion
     [PAID={"id":"12,32","title":"Only paid members can see this text!"}]
     Some text is here
     [/PAID]
+
+### [UNPAID]
+
+There is another syntax like `[UNPAID=STRING]Some test here[/UNPAID]` where `STRING` is an IDs of the plans separated by coma. This part of the restriction defint content that will be shown to unsubscribed customers. Somethign like subscription buton or notice.
+
+### Example
+
+    [UNPAID=12,13,14]
+    Please do not forget to subscribe!
+    [/UNPAID]
