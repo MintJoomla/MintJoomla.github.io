@@ -17,16 +17,23 @@ It does not matter where you place it. In any text or just place it in PHP layou
 
 
 	{
-		"id":"1,2,54",
-		"title":"You cannot see this text!"
-		"count": 1
+		"id":       "1,2,54",
+		"title":    "You cannot see this text!"
+		"count":    "1",
+		"redirect": "0",
+		"delay":    "5",
+		"link":     "1"
 	}
 
-Param | Descritpion
-------|---
-`id`    | ID or IDs or the plans that restrict this part of the site. User will be able to se it only if he has one of those subscriptions.
-`title` | Optional. If it is exists, protected will be replaced with warning box. Also link to subscription plans will be added. To change label of that link, you can in Emerald system plugin.
-`count` | Count usage when restricted. By default it is `1`.
+Param | Default | Description
+------|---|---
+`id`    | | ID or IDs or the plans that restrict this part of the site. User will be able to se it only if he has one of those subscriptions.
+`title` | | Optional. If it is exists, protected will be replaced with warning box. Also link to subscription plans will be added. To change label of that link, you can in Emerald system plugin.
+`count` | 1 | Count usage when access granted.
+`link` | 1 | Show or hide link to subscriptions list to purchase.
+`redirect` | 0| Redirect to plan purchase page. Default is 0 and it will only hide part of the content. But if you want to restrict whole page where this placeholder is met, then you can use this parameter and Emerald will redirect user to list of the plans to purchase. `title` will be used as message for redirection.
+`delay` | 0 | How many days after subscription was purchased to access this content.
+
 
 ### Example
 
