@@ -21,11 +21,11 @@ There are 2 methods to update your Joomla. One is update 1.5/2.5 to 3, and anoth
 
 Either you update from Joomla 1.5 or Joomla 2.5 the process is the same. Read [Joomla wiki](http://docs.joomla.org/How_do_I_upgrade_from_Joomla!_1.5_to_3.x%3F) for more details.
 
-1. Unpublished and uninsltall all Emerald 8 plugins.
+1. Unpublished and uninsltall all Emerald 8/Mighty Membership plugins.
 2. If you update from Joomla 2.5 with Emerald 8 Delete `com_emerald` folders in `components` and `administrator/components` folders.
 3. Update Joomla keeping all users in DB
 
-If you updated Joomla then `_jcs_*` should be already in the DB. Just make sure those tables are there.
+If you updated Joomla then `_jcs_*` tables should be already in the DB. Just make sure those tables are there.
 
 ### Step 2a (install new Joomla 3)
 
