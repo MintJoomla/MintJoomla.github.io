@@ -39,6 +39,11 @@ iDevAffiliate    | Integrates with [iDevAffiliate](http://www.idevdirect.com/)
 Google Analytics | Add tracking code and let Google Analytics to register goal and amount paid. Then you will see your sale reports in [Google Analytics](http://www.google.com/analytics/)
 Hook URL         | Send `POST` request to given URL with purchase details.
 Custom JavaScript| Any piece of javascript code. There are a lot of applications that integrates with simple placing JS code on the page.
+MailChimp | Automatically subscribe user to newsletter on MailChimp service.
+GetResponse | Automatically subscribe user to newsletter on Getresponse service.
+Benchmark mail | Automatically subscribe user to newsletter on Benchmarkmail service.
+Smartresponder | Automatically subscribe user to newsletter on Smartresponder service.
+Hikashop | Allow to sell subscription through HikaShop products.
 
 ## Custom Action
 

@@ -11,17 +11,36 @@ Emerald 9 has completely new DB structure. Thus simple update of extension will 
 
 <div class="alert alert-error">This is most crucial step. Please make backup of your Joomla DB before you proceed.</div>
 
-There are 2 methods to update your Joomla. Some update 2.5 to 3, some setup from new Joomla 3.x.
-It does not matter what method you are using, you have to make sure:
-
-1. All tables `_jcs_*` are in the same database where your Emerald 9 is installed.
-2. Users from old site are all in new Joomla 3 DB with the same IDs.
-
-If you updated Joomla from 1.5-2.5 to 3.x, then those tables should be already there. If you install Joomla 3.x from scratch, you have to dump `_jcs_*` tables from old site DB and upload then to new DB. You have to also move your users to new site. Make sure table prefixes are the same.
-
 ## Step 2
 
-Update your Joomla to version 3. Either you update from Joomla 1.5 or Joomla 2.5 the process is the same. Read [Joomla wiki](http://docs.joomla.org/How_do_I_upgrade_from_Joomla!_1.5_to_3.x%3F) for more details. You have to though update process to safely transfer all your users and keep their user IDs that are bounded to subscriptions.
+Create Joomla 3 website.
+
+There are 2 methods to update your Joomla. One is update 1.5/2.5 to 3, and another one is setup new Joomla 3.x.
+
+### Step 2a (update from old Joomla to Joomla 3)
+
+Either you update from Joomla 1.5 or Joomla 2.5 the process is the same. Read [Joomla wiki](http://docs.joomla.org/How_do_I_upgrade_from_Joomla!_1.5_to_3.x%3F) for more details.
+
+1. Unpublished and uninsltall all Emerald 8 plugins.
+2. If you update from Joomla 2.5 with Emerald 8 Delete `com_emerald` folders in `components` and `administrator/components` folders.
+3. Update Joomla keeping all users in DB
+
+If you updated Joomla then `_jcs_*` should be already in the DB. Just make sure those tables are there.
+
+### Step 2a (install new Joomla 3)
+
+1. Install new Joomla
+2. Migrate your users from old Joomla to new. Make sure you keep the same user IDs.
+3. Dump all `_jcs_*` tables on your old site DB and import into new DB. Make sure prefixes are the same.
+
+### Step 2 Summary 
+
+It does not matter what method you are using, you have to make sure:
+
+1. All tables `_jcs_*` are in the same database where you are going to install Emerald 9.
+2. Users from old site are all in new Joomla 3 DB with the same IDs.
+
+This is all we need for success import.
 
 ## Step 3
 
