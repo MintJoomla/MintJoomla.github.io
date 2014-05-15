@@ -64,7 +64,7 @@ Here is an example. It should be one line. I have formatted it just to make it m
 		?option=com_cobalt
 		&task=records.filter
 		&section_id=2
-		&item_id=126
+		&Itemid=126
 		&filter_name[0]=filter_type
 		&filter_val[0]=2
 		&filter_name[1]=filter_user
@@ -105,7 +105,7 @@ Sometimes you need to reset all filters by URL or single filter.
     index.php?option=com_cobalt
          &task=records.cleanall
          &section_id=2 
-         &itemid=123
+         &Itemid=123
 
 #### Reset individual filter
 
@@ -113,7 +113,7 @@ Sometimes you need to reset all filters by URL or single filter.
          &task=records.clean
          &clean[filter_k58596481bc7070e4adecd4f2e29569de]=1
          &section_id=2 
-         &itemid=123
+         &Itemid=123
 
 There are few parameters to insert to clean variable 
 
@@ -135,7 +135,7 @@ You may reset few filters at once
          &clean[filter_type]=1
          &clean[filter_alpha]=1
          &section_id=2 
-         &itemid=123
+         &Itemid=123
 
 ## Q: What is a field key?
 
