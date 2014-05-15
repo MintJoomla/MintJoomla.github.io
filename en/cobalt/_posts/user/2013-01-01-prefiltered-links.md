@@ -29,7 +29,15 @@ filter_val			| ![Yes][1] | Array of the values of the filters. Explained later.
 
 After user click URL, filters will be set and user will be redirected to standard articles list URL. That is why we need section ID, Itemid and category ID. To land user to correct page. So please do not forget to set those parameters correctly.
 
-## 2. Set Filters
+## 2. Reset and Set Filters
+
+If you want to reset all filters before you set new one, add to URL `&clean=1`.
+
+	http://www.com/index.php?option=com_cobalt&task=records.filter&clean=1&...
+	
+Otherwise filters will be added to curently applied filters.
+
+## 3. Set Filters
 
 `filter_val` and `filter_name` are arrays that set filters. You can add as many of them as you want. Here is the example.
 
