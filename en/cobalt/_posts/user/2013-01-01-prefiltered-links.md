@@ -96,6 +96,10 @@ Sometimes it is important to identify array keys like for example for geo field.
 
 But that is very exclusive. Only Geo and DateTime fields. For data time first set is a data _from_ and second date _to_
 
+If you use boolean field then filter value is `true` OR `false`
+
+	&filter_val[0]=true
+
 ## How to reset filters through link.
 
 Sometimes you need to reset all filters by URL or single filter.
