@@ -51,7 +51,7 @@ This table show you list of available standard `filter_name` and their `filter_v
 
 Filter name   | Filter value | Description
 --------------|--------------|-------------
-filter_tpl		| default		| Name of the article list template
+filter_tpl		| default		| Name of the article list template. If you want to use settings of the template you have to include filter configuration key. Somethign like `default.b604f5fb1ca89b8be2706881a530680f`. how you can get this key? Just look temmplate select source code in section edit page.
 filter_cat		| 2				| ID of the category
 filter_user	| 42			| ID of the user
 filter_tag		| 2				| ID of the tag
