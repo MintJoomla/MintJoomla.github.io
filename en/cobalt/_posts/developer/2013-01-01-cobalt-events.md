@@ -84,6 +84,31 @@ Here is sample
 - `$section` - **object** - Section object. Includes `$section->params` where you can get all section parameters.
 - `$type` - **object** - Content Type object. Includes `$type->params` where you can get all type parameters.
 
+## onBeforeArticleSaved
+
+`onBeforeArticleSaved` event is triggered before article save process is triggered.
+
+Here is sample
+
+	<?php
+	defined('_JEXEC') or die('Restricted access');
+
+	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+
+	class plgMintPluginname extends JPlugin
+	{
+		public function onBeforeArticleSaved($isnew, $record, $section, $type)
+		{
+		}
+	}
+
+
+- `$isnew` - **boolean** - If this is new article or we edit article.
+- `$record` - **array** - Array of submitted form data.
+- `$section` - **object** - Section object. Includes `$section->params` where you can get all section parameters.
+- `$type` - **object** - Content Type object. Includes `$type->params` where you can get all type parameters.
+
+
 ## onActivity
 
 `onActivity` event is triggered on every action in cobalt.
