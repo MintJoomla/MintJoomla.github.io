@@ -50,3 +50,62 @@ Here is the list of available placeholders in URL
 - `[ID]` - is what is returned by SQL query in column aliased "AS id"
 - `[USER_ID]` - replaced to ID of currently logged in user
 - `[AUTHOR_ID]` - replaces with ID of the author of the record
+
+# Use SQL Source to make relations
+
+You can use SQL source to replace Parent/Child fields and create relations. It is much more simpler relations but sometimes or even mostly this is all you need.
+
+1. This method will make your site little quicker
+2. No templates, just the list of connected articles with link
+
+## Create Query
+
+So first we have to decide what section we connect to. Let's say it is a section ID 3
+
+	SELECT id, title AS text FROM #__js_res_record WHERE section_id = 3
+
+This is was a simplest query. Now let's say you have many types in that section ID 3 and you want only type ID 6 to be used.
+
+	SELECT id, title AS text FROM #__js_res_record WHERE section_id = 3 AND type_id = 6
+
+Now let's say you want only from category 2 and 3.
+
+	SELECT r.id, r.title AS text 
+	  FROM #__js_res_record AS r
+	 WHERE r.section_id = 3 
+	   AND r.type_id = 6
+	   AND r.id IN (SELECT record_id from #__js_res_record_category WHERE catid IN(2,3))
+
+And another complicated example. For example you want all records from category there value of select field equal to 20114.
+
+	SELECT r.id, r.title AS text 
+	  FROM #__js_res_record AS r
+	 WHERE r.section_id = 3 
+	   AND r.type_id = 6
+	   AND r.id IN (SELECT record_id from #__js_res_record_values WHERE field_value = '2014')
+
+That was conditions. But what if you want to select more then just title but also some field value or date?
+
+	SELECT id, 
+	       CONCAT(title, '<br><small>On: ', DATE_FORMAT(ctime, '%d %M %Y') ,'</small>') AS text 
+	  FROM #__js_res_record 
+	 WHERE section_id = 3
+
+or show value or the field ID 3
+
+	SELECT r.id, 
+	       CONCAT(r.title, '<br><small>Year: ', (SELECT field_value FROM #__js_res_record_values WHERE record_id = r.id AND field_id = 3) ,'</small>') AS text 
+	  FROM #__js_res_record AS r
+	 WHERE r.section_id = 3
+
+
+## Create Link
+
+Now we can use link processing parameter to create links. Simply insert there something like 
+
+    index.php?option=com_cobalt&view=record&id=[ID]&Itemid=140
+
+For correct conversion do not forget `Itemid` parameter which you can look in the URL in the section where that article is located.
+
+
+
