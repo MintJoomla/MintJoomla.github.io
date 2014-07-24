@@ -35,12 +35,12 @@ Param | Default | Description
 `delay` | 0 | How many days after subscription was purchased to access this content.
 `user_id` | 0 | By default it is a currently logged in user. You can change whose user ID to check against.
 
-
+Also inside the `[PAID]` placeholder and `title` you can use `[NAME]` to personalize message.
 
 ### Example
 
-    [PAID={"id":"12,32","title":"Only paid members can see this text!"}]
-    You HAVE subscriptions
+    [PAID={"id":"12,32","title":"Dear [NAME], only paid members can see this text!"}]
+        [NAME], here is your content. You HAVE subscriptions!
     [/PAID]
 
 If you use only `id` parameter you may shorten syntax to 
