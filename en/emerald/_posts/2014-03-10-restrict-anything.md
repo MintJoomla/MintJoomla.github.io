@@ -35,7 +35,10 @@ Param | Default | Description
 `delay` | 0 | How many days after subscription was purchased to access this content.
 `user_id` | 0 | By default it is a currently logged in user. You can change whose user ID to check against.
 
-Also inside the `[PAID]` placeholder and `title` you can use `[NAME]` to personalize message.
+Also inside the `[PAID]` placeholder and `title` you can use:
+ 
+- `[NAME]` to personalize message.
+- `[REMAININGDAYS]` - to display how many days left to use this subscription.
 
 ### Example
 

@@ -94,6 +94,10 @@ Sometimes it is important to identify array keys like for example for geo field.
 
 	&filter_val[0][lat]=41.25458745&filter_val[0][lng]=21.2654789
 
+or date range
+
+	filter_val[0][range]=2014-09-01,2014-09-30
+
 But that is very exclusive. Only Geo and DateTime fields. For data time first set is a data _from_ and second date _to_
 
 If you use boolean field then filter value is `true` OR `false`
