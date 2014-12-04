@@ -81,11 +81,11 @@ Another nice thing you can do is to target your message. For example
 
     [UNPAID={"id":"12,32","user_id":"745"}]
     
-    This site is based on membership.
+      This site is based on membership.
     
-    [NEW]Please subscribe <a href="/subscription/">here</a>.[/NEW]
+      [NEW]Please subscribe <a href="/subscription/">here</a>.[/NEW]
     
-    [EXPIRED]You subscription had expired, just update it <a href="/subscription/">here</a>.[/EXPIRED]
+      [EXPIRED]You subscription had expired, just update it <a href="/subscription/">here</a>.[/EXPIRED]
     
     [/UNPAID]
 
