@@ -63,6 +63,10 @@ Param | Default | Description
 `id`    | | ID or IDs or the plans that restrict this part of the site. User will be able to se it only if he has one of those subscriptions.
 `user_id` | 0 | By default it is a currently logged in user. You can change whose user ID to check against.
 
+Also inside the `[UNPAID]` placeholder you can use:
+ 
+- `[STAT_TOTAL]` how many times this restriction was purchased.
+- `[STAT_COUNTRIES]` - in how many countries this restriction was purchased. Only works if you have invoicing enabled and users enter billing address.
 
 ### Example
 
