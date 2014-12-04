@@ -9,6 +9,8 @@ Often you will need to restrict part of the text on the page. May be hide module
 
 ### [PAID] 
 
+Anything you place between those tags will be visible only to users who has that plan(s). 
+
 Just embrace part of the text you want to hide into `[PAID=JSON]Some test here[/PAID]` and this text will be hidden.
 
 It does not matter where you place it. In any text or just place it in PHP layout files or templates. Anywhere.
@@ -54,7 +56,9 @@ If you use only `id` parameter you may shorten syntax to
 
 ### [UNPAID]
 
-There is another syntax like `[UNPAID=STRING]Some test here[/UNPAID]` where `STRING` is an IDs of the plans separated by coma or JSON. This part of the restriction define content that will be shown to unsubscribed customers. Something like subscription button or notice.
+There is another syntax like `[UNPAID=STRING]Some test here[/UNPAID]` where `STRING` is an IDs of the plans separated by coma or JSON. 
+
+Anything you place between these tags, will be visible to all unpaid members.
 
 The JSON parameters are only 
 
@@ -68,10 +72,21 @@ Also inside the `[UNPAID]` placeholder you can use:
 - `[STAT_TOTAL]` how many times this restriction was purchased.
 - `[STAT_COUNTRIES]` - in how many countries this restriction was purchased. Only works if you have invoicing enabled and users enter billing address.
 
+Another nice thing you can do is to target your message. For example 
+
+- `[NEW]*[/NEW]` - Will show content only for users who never purchased subscriptions. 
+- `[EXPIRED]*[/EXPIRED]` - Will show content only for users who had purchased subscriptions but subscription had expired. 
+
 ### Example
 
     [UNPAID={"id":"12,32","user_id":"745"}]
-    You DO NOT HAVE subscriptions
+    
+    This site is based on membership.
+    
+    [NEW]Please subscribe <a href="/subscription/">here</a>.[/NEW]
+    
+    [EXPIRED]You subscription had expired, just update it <a href="/subscription/">here</a>.[/EXPIRED]
+    
     [/UNPAID]
 
 
