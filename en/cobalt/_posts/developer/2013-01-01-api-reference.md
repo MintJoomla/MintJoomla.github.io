@@ -4,18 +4,19 @@ title:  "API reference"
 date:   2013-01-01 12:30:30
 tags: developer API
 ---
-## Render individual field
+## Render an individual field
 
-You can easily get value of individual field.
+How to get the value of an individual field:
 
 	echo CobaltApi::renderField($record, $field_id, $view, $default);
 
-I do not recommend to call this in list and full article templates as this method require some additional SQL queries to load field and all fields are already loaded there. You can use it in cases where record fields are not accessible.
-
-- `$record` -  might be record ID or record object with you get with `ItemsStore::getRecord($record_id)`.
+- `$record` -  Record ID or record object which you get through `ItemsStore::getRecord($record_id)`.
 - `$field_id` - ID of the field you want to render.
-- `$view` - `full` or `list`. Chose how you want to render this field as it would be renderers in articles list or in full article view. 
-- `$default` - if you want this field to show something even if there is nothing saved in record, set default value here.
+- `$view` - `full` or `list`. Render view - either article list or full article view. 
+- `$default` - Default display value if nothing was saved in the field.
+
+Don't call it in list and full article templates to avoid unnecessary SQL queries. Every field value is accessible and already loaded there. 
+<div class="alert">For a better understanding how to access field values in article list and full view templates, please read <a href="/en/cobalt/custom-templates-article/">Customize article templates</a></div>
 
 ## Rating calculation
 
