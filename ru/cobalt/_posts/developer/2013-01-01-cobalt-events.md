@@ -2,7 +2,7 @@
 layout: doc
 title:  "Система событий Cobalt"
 date:   2015-01-01 12:30:30
-tags: developer API events
+tags: developer API events other
 intro: "Интегрируйте ваши расширения в Cobalt через систему событий."
 ---
 
