@@ -51,20 +51,20 @@ Or you can use `list`
 	
 Parameter		| Description
 --------------|-------------
-$section_id	| ID of the section in which records are stored
-$view_what		| special system parameter to affect records search. See `view_wnat` tabe below
+$section_id	| ID of the section in which records are stored.
+$view_what		| special system parameter to affect records search. See `view_wnat` tabe below.
 $orderby		| How to order. example `r.ctime DESC`. See list of orders below.
-$type_ids		| One type ID or array of the IDs
+$type_ids		| One type ID or array of the IDs.
 $user_id		| ID of the user. If you pas this parameter you will get records of only this user. This is one of the most important parameters for socialization in other extensions.
 $category_id	| ID of category. You will get records of given category or given category node depending on your section or category "Records mode" parameter.
 $limit         | How many records to select
 $template      | In what template. This is contain something like `default`, `simple_list`, `table`
 $client        | Name of the extension that use Cobalt article. For example when we get discussions of Joomla core articles the client is `com_cobalt`
 $client_id     | Id of the parent article.
-$lang          | `true` or `false` - shoe articles of current language only or any language.
+$lang          | `true` or `false` - show articles of current language only or any language.
 $ids           | array of record IDs. If you ant to show specific articles you can get their IDs first by SQL query and then pass to list them.
 
-Lets assume you display list of records and you want to give user some control what and how to show. For example you want use to chose template or limit, here is the list of XML elements for creating a form that store values to call this method later.
+Let's assume you display list of records and you want to give user some control what and how to show. For example you want use to choose template or limit, here is the list of XML elements for creating a form that store values to call this method later.
 
 	<fieldset name="general2" label="FS_WHATTOSHOW">
 		<field name="list_type" type="list" label="F_WHATTOSHOW">
