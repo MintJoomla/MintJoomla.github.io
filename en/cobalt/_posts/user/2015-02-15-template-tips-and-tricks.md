@@ -73,7 +73,8 @@ To apply new template go to administrator->Cobalt->Sections->your section->Gener
 ## Show or block something for users
 
 Full View
-```php
+
+```
 <?php if(MECAccess::allowRestricted(NULL, $this->section) || 
     in_array($this->type->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
     Your stuff here.
@@ -82,7 +83,7 @@ Full View
 
 List View
 
-```php
+```
 <?php if(MECAccess::allowRestricted(NULL, $this->section) || 
     in_array($this->submission_types[$item->type_id]->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
     Your stuff here.
@@ -91,7 +92,7 @@ List View
 
 ## Save category in some other field as value
 
-```js
+```
 $(document).ready(function() {
     $("#jformcategory").change(function () {
         var country = "";
@@ -105,7 +106,7 @@ $(document).ready(function() {
 
 You can also use Cobalt events [Documentation](http://docs.mintjoomla.com/en/cobalt/cobalt-events/)
 
-```php
+```
 $_POST['jfomr']['fields'][ID] = 'text field ID';
 $_POST['jfomr']['fields'][ID] = array('select field ID', 'another value');
 ```
