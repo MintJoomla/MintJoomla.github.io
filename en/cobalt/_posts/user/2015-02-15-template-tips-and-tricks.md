@@ -6,25 +6,19 @@ tags: templates
 intro: "Additional information."
 ---
 
-# Template tips & tricks
+<div class="alert">General rules how to work with templates, please read  <a href="/en/cobalt/custom-templates-general/">Customize templates - general</a></div>
 
-Here are some examples on how to modify Cobalt templates.
-
-## Markup template
-
-You can find markup template in *components/com_cobalt/views/records/tmpl/default_markup_default.php*
-
-#### Remove dropdown Switch view and change template labels to images with labels as tooltips
+## Remove dropdown Switch view and change template labels to images with labels as tooltips
 
 So let's try do change this template from
 
-![Dropdown Switch view markup template](http://demo.web-er.si/markup_template_template_switcher_before.jpg)
+![Dropdown Switch view markup template](/assets/img/screenshots/markup_template_template_switcher_before.jpg)
 
 to something like
 
-![List Switch view with images markup template](http://demo.web-er.si/markup_template_template_switcher_after.jpg).
+![List Switch view with images markup template](/assets/img/screenshots/markup_template_template_switcher_after.jpg).
 
-Find default _ markup _ default.php make copy of it and change file name as you wish. Now find this code (around line 196):
+make copy of markup template and find `default_markup_[you name].php` file and find this code (around line 196):
 
 
     <?php if(count($this->list_templates) > 1 && in_array($markup->get('menu.menu_templates'), $this->user->getAuthorisedViewLevels()) && $this->items):?>
@@ -76,7 +70,6 @@ Then you only need to add so many image files to your image folder as many you h
 
 To apply new template go to administrator->Cobalt->Sections->your section->General parameters->Templates->Markup layout and select new template. Then configure it to your needs!
 
-
 ## Show or block something for users
 
 Full View
@@ -88,6 +81,7 @@ Full View
 ```
 
 List View
+
 ```php
 <?php if(MECAccess::allowRestricted(NULL, $this->section) || 
     in_array($this->submission_types[$item->type_id]->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
@@ -108,7 +102,9 @@ $(document).ready(function() {
     }).change();
 });
 ```
+
 You can also use Cobalt events [Documentation](http://docs.mintjoomla.com/en/cobalt/cobalt-events/)
+
 ```php
 $_POST['jfomr']['fields'][ID] = 'text field ID';
 $_POST['jfomr']['fields'][ID] = array('select field ID', 'another value');
