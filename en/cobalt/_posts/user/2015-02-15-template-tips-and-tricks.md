@@ -74,39 +74,31 @@ To apply new template go to administrator->Cobalt->Sections->your section->Gener
 
 Full View
 
-```
-<?php if(MECAccess::allowRestricted(NULL, $this->section) || 
-    in_array($this->type->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
-    Your stuff here.
-<?php endif; ?>
-```
+	<?php if(MECAccess::allowRestricted(NULL, $this->section) || 
+		in_array($this->type->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
+		Your stuff here.
+	<?php endif; ?>
 
 List View
 
-```
-<?php if(MECAccess::allowRestricted(NULL, $this->section) || 
-    in_array($this->submission_types[$item->type_id]->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
-    Your stuff here.
-<?php endif; ?>
-```
+	<?php if(MECAccess::allowRestricted(NULL, $this->section) || 
+		in_array($this->submission_types[$item->type_id]->params->get('properties.item_can_moderate'), $this->user->getAuthorisedViewLevels())):?>
+		Your stuff here.
+	<?php endif; ?>
 
 ## Save category in some other field as value
 
-```
-$(document).ready(function() {
-    $("#jformcategory").change(function () {
-        var country = "";
-        $("select#selectfieldid option:selected").each(function () {
-            country += $(this).text() + " ";
-        });
-        $("#field_ID").val(country);
-    }).change();
-});
-```
+	$(document).ready(function() {
+		$("#jformcategory").change(function () {
+			var country = "";
+			$("select#selectfieldid option:selected").each(function () {
+				country += $(this).text() + " ";
+			});
+			$("#field_ID").val(country);
+		}).change();
+	});
 
 You can also use Cobalt events [Documentation](http://docs.mintjoomla.com/en/cobalt/cobalt-events/)
 
-```
-$_POST['jfomr']['fields'][ID] = 'text field ID';
-$_POST['jfomr']['fields'][ID] = array('select field ID', 'another value');
-```
+	$_POST['jfomr']['fields'][ID] = 'text field ID';
+	$_POST['jfomr']['fields'][ID] = array('select field ID', 'another value');
