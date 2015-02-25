@@ -2,7 +2,7 @@
 layout: doc
 title:  "Templates tips and tricks"
 date:   2015-02-15 09:30:00
-tags: templates
+tags: templates developer
 intro: "Additional information."
 ---
 
