@@ -6,7 +6,7 @@ date:   2013-01-01 12:30:30
 tags: developer templates
 ---
 
-This is an easy way how to generate meta data from Cobalt categories, fields etc. You can find more about Joomla setMetaData method [here](https://docs.joomla.org/JDocument/setMetaData).
+This is an easy way how to generate meta data from Cobalt categories, fields etc. You can find more about Joomla `setMetaData` method [here](https://docs.joomla.org/JDocument/setMetaData).
 
 ## Record list template
 
