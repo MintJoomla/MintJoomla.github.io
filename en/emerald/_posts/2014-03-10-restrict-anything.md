@@ -19,7 +19,7 @@ It does not matter where you place it. In any text or just place it in PHP layou
 
 
 	{
-		"id":       "1,2,54",
+		"id":       "1,3-5,8",
 		"title":    "You cannot see this text!"
 		"count":    "1",
 		"redirect": "0",
@@ -29,7 +29,7 @@ It does not matter where you place it. In any text or just place it in PHP layou
 
 Param | Default | Description
 ------|---|---
-`id`    | | ID or IDs or the plans that restrict this part of the site. User will be able to se it only if he has one of those subscriptions.
+`id`    | | ID or IDs or the plans that restrict this part of the site. User will be able to se it only if he has one of those subscriptions. You can enter as separate IDs as range or combination separated by coma.
 `title` | | Optional. If it is exists, protected will be replaced with warning box. Also link to subscription plans will be added. To change label of that link, you can in Emerald system plugin.
 `count` | 1 | Count usage when access granted.
 `link` | 1 | Show or hide link to subscriptions list to purchase.

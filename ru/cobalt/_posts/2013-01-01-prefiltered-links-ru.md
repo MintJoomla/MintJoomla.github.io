@@ -2,7 +2,7 @@
 layout: doc
 title:  "Создание пре-фильтровых ссылок"
 date:   2013-01-01 12:30:30
-tags: filters setup
+tags: filters setup other
 intro: "Создание ссылок для автоматической установки фильтров к списку статей."
 ---
 
