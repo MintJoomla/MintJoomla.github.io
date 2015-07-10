@@ -16,14 +16,12 @@ Cobalt structure is made of section and it's categories. We will try to generate
 
 You could also create custom template parameter to turn generating meta data on or off. You can do that by opening `.xml` file of your template and add something like this.
 
-```xml
-<fieldset name="seo" label="SEO">
-		<field name="metadata_auto" type="radio" class="btn-group" default="0" label="Auto generate meta data.">
-			<option value="0">CNO</option>
-			<option value="1">CYES</option>
-		</field>
-</fieldset>
-```
+	<fieldset name="seo" label="SEO">
+			<field name="metadata_auto" type="radio" class="btn-group" default="0" label="Auto generate meta data.">
+				<option value="0">CNO</option>
+				<option value="1">CYES</option>
+			</field>
+	</fieldset>
 
 Now you must go to your template parameters to enable this option.
 
@@ -42,29 +40,25 @@ For populating `string $content` we can use different options:
 
 ### Example
 
-```php
-// checks if template parameter is set to yes for creating meta data or not
-if($params->get('tmpl_params.metadata_auto') == 1) 
-{ 
-	// checks if it is category and not section
-	if(JFactory::getApplication()->input->getInt('cat_id') > 0) 
+	// checks if template parameter is set to yes for creating meta data or not
+	if($params->get('tmpl_params.metadata_auto') == 1) 
 	{ 
-		// sets category title as meta title 
-		$this->document->setTitle($this->category->title);
-		// generate meta description from category description. Instead of $this->category->description you could use something like `substr($this->category->description,0,200) . '...'` to limit meta description to 200 characters.
-		$this->document->setMetaData('description', '$this->category->description'); 
-		$this->document->setMetaData('keywords', $this->category->title . ', ' . $this->section->name . ', some other custom words');
+		// checks if it is category and not section
+		if(JFactory::getApplication()->input->getInt('cat_id') > 0) 
+		{ 
+			// sets category title as meta title 
+			$this->document->setTitle($this->category->title);
+			// generate meta description from category description. Instead of $this->category->description you could use something like `substr($this->category->description,0,200) . '...'` to limit meta description to 200 characters.
+			$this->document->setMetaData('description', '$this->category->description'); 
+			$this->document->setMetaData('keywords', $this->category->title . ', ' . $this->section->name . ', some other custom words');
+		}
 	}
-}
-```
 
 You could also add records titles to keywords meta tag with foreach cycle:
 
-```php
-foreach ($this->items AS $item) {
-     echo $item->title;
-}
-```
+	foreach ($this->items AS $item) {
+	     echo $item->title;
+	}
 
 ## Record template
 
@@ -74,11 +68,9 @@ For geting field data you can use `$item->fields_by_id[ID]->result` or `$item->f
 
 ### Example
 
-```php
-// item title and category title as meta title
-$this->document->setTitle($item->title . ' (' . $this->category->title . ') '); 
-// field data as meta description, you can use data from textarea field or html field here
-$this->document->setMetaData( 'description', substr($item->fields_by_id[ID]->result,0,200) . '...' ); 
-//setting meta keywords, $item->fields_by_id[ID]->value['address']['city'] is getting values from geo field
-$this->document->setMetaData( 'keywords', $item->title .', '. $item->fields_by_id[ID]->value['address']['city'] .', '. $this->category->title .', '. $this->section->name); 
-```
+	// item title and category title as meta title
+	$this->document->setTitle($item->title . ' (' . $this->category->title . ') '); 
+	// field data as meta description, you can use data from textarea field or html field here
+	$this->document->setMetaData( 'description', substr($item->fields_by_id[ID]->result,0,200) . '...' ); 
+	//setting meta keywords, $item->fields_by_id[ID]->value['address']['city'] is getting values from geo field
+	$this->document->setMetaData( 'keywords', $item->title .', '. $item->fields_by_id[ID]->value['address']['city'] .', '. $this->category->title .', '. $this->section->name); 
