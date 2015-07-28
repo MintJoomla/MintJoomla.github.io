@@ -41,11 +41,11 @@ wait for the upload to complete and click on next. You will now be able to choos
 
 ![Import fields](http://i.imgur.com/tTuX5tk.jpg)
 
-In the Name field, you give the name of the import profile you are creating.
-The ID field is the special field you can use to allow updates, but you can also leave it alone selecting "Do not import anything here". If you use it, select a column of your spreadsheet file with a "unique" name, so that with next imports, if you import selecting again that same "ID", you will update your records in the DB and create new others if there is something new.
+In the Name field, you give the name of the import profile you are creating.<br>
+The ID field is the special field you can use to allow updates, but you can also leave it alone selecting "Do not import anything here". If you use it, select a column of your spreadsheet file with a "unique" name, so that with next imports, if you import selecting again that same "ID", you will update your records in the DB and create new others if there is something new.<br>
 In the Title field you select a column to use to give to each record the title of the article.
 
-The remaining fields are generrated based on what you created in the selected Type of the import.
+The remaining fields are generated based on what you created in the selected Type of the import.
 
 When you have selected all your required fields, click next to finish the process.
 
