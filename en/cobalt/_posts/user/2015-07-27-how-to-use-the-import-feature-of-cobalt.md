@@ -39,7 +39,7 @@ As you can guess you first upload your CSV or JSON file, this is how the import 
 
 wait for the upload to complete and click on next. You will now be able to choose an import profile or create a new one. When you create a new profile, the area below will show the parameter fields for the import along with the Fields you created for the Type you specified in the import menu settings (see Step 1 above).
 
-![Import fields](/assets/img/screenshots/1437607371_mj_cob_menuitem_new.png)
+![Import fields](http://i.imgur.com/tTuX5tk.jpg)
 
 In the Name field, you give the name of the import profile you are creating.
 The ID field is the special field you can use to allow updates, but you can also leave it alone selecting "Do not import anything here". If you use it, select a column of your spreadsheet file with a "unique" name, so that with next imports, if you import selecting again that same "ID", you will update your records in the DB and create new others if there is something new.
