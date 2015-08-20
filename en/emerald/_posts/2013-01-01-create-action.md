@@ -56,6 +56,10 @@ How edit language file and add there
         {
             return JText::sprintf('JS_HINT', JText::sprintf($this->params->get('text'), '[PLAN NAME]'));
         }
+        public function onSuccess($subscription)
+        {
+            return true;
+        }
         public function onActive($subscription)
         {
             return true;
@@ -71,13 +75,21 @@ How edit language file and add there
 
 ### getDescription()
 
-Should return string. This is summary of the action to show in action balloon.
+This method shows description of the action in the plan parameters in action balloon. Should return string.
 
 ![](/assets/img/screenshots/em-action-balloon.png)
 
 ### onActive($subscription)
 
-Receive user subscription object. Look `_emerald_subscriptions` table to see what fields are available. Here you can run your action when subscription activated.
+Receive user subscription object. Look `_emerald_subscriptions` table to see what fields are available. 
+Here you can run your action when subscription activated. This method is triggered only when subscription owner is logged in. It means that if you as admin set subscription to any user, actions with those methods will not be triggered untill user 
+logges in or refresh the page. 
+
+It also means that `$user = JFactory::getUser()` will be always user of the subscription in that method.
+
+### onSuccess($subscription)
+
+This method is triggered immediately whenever subscription is activated. It means that there is no need fo user to be logged in in order to trigger this method. This one is good for Affiliate integrations for example.
 
 ### onDisactive($subscription)
 
