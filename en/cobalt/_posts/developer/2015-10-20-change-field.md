@@ -2,7 +2,7 @@
 layout: doc
 title:  "Change field value bulk"
 date:   2015-10-20 12:30:30
-tags: developer
+tags: developer other
 ---
 ## Setup
 
