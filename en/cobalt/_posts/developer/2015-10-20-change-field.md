@@ -84,7 +84,7 @@ Now you can chane these lines
 
 And open URL
 
-    http://localhost/index.php?option-com_cobalt&task=custom.change
+    http://localhost/index.php?option=com_cobalt&task=custom.change
 
 This task have to be triggered and change all you need.
 
