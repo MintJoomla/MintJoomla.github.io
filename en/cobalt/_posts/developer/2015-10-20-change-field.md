@@ -10,70 +10,68 @@ Sometimes you need to change value of one field to another in bulk. But there is
 
 Create file `com_cobalt/controllers/custom.php` and place this content there.
 
-```
-<?php
-defined('_JEXEC') or die;
-
-jimport('joomla.application.component.controllerform');
-
-class CobaltControllerCustom extends JControllerForm
-{
-	public function __construct($config = array())
+	<?php
+	defined('_JEXEC') or die;
+	
+	jimport('joomla.application.component.controllerform');
+	
+	class CobaltControllerCustom extends JControllerForm
 	{
-		parent::__construct($config);
-	}
-		
-	public function change()
-	{
-		$field_id   = 27;
-		$section_id = 5;
-		$value      = 'Red';
-		$new_value  = 'Dark Red';
-
-
-		$db = JFactory::getDbo();
-
-		$db->setQuery("SELECT id, fields FROM #__js_res_record WHERE section_id = {$section_id} AND id IN(SELECT record_id FROM #__js_res_record_values WHERE field_id = {$field_id} AND field_value = '{$value}')");
-		$list = $db->loadObjectList();
-
-		foreach($list AS $item)
+		public function __construct($config = array())
 		{
-			$fields = json_decode($item->fields, TRUE);
-
-			if(empty($fields[$field_id]))
+			parent::__construct($config);
+		}
+			
+		public function change()
+		{
+			$field_id   = 27;
+			$section_id = 5;
+			$value      = 'Red';
+			$new_value  = 'Dark Red';
+	
+	
+			$db = JFactory::getDbo();
+	
+			$db->setQuery("SELECT id, fields FROM #__js_res_record WHERE section_id = {$section_id} AND id IN(SELECT record_id FROM #__js_res_record_values WHERE field_id = {$field_id} AND field_value = '{$value}')");
+			$list = $db->loadObjectList();
+	
+			foreach($list AS $item)
 			{
-				continue;
+				$fields = json_decode($item->fields, TRUE);
+	
+				if(empty($fields[$field_id]))
+				{
+					continue;
+				}
+	
+				$fields[$field_id] = $this->_change($fields[$field_id], $value, $new_value);
+	
+				$db->setQuery("UPDATE #__js_res_record SET fields = '" . json_encode($fields) . "' WHERE id = " . $item->id);
+				$db->execute();
 			}
-
-			$fields[$field_id] = $this->_change($fields[$field_id], $value, $new_value);
-
-			$db->setQuery("UPDATE #__js_res_record SET fields = '" . json_encode($fields) . "' WHERE id = " . $item->id);
+	
+			$db->setQuery("UPDATE #__js_res_record_values SET field_value = '{$new_value}' WHERE field_id = {$field_id} AND field_value = '{$value}'");
 			$db->execute();
+	
 		}
-
-		$db->setQuery("UPDATE #__js_res_record_values SET field_value = '{$new_value}' WHERE field_id = {$field_id} AND field_value = '{$value}'");
-		$db->execute();
-
-	}
-
-	private function _change($value, $what, $to)
-	{
-		if(is_array($value))
+	
+		private function _change($value, $what, $to)
 		{
-			foreach($value AS &$val)
+			if(is_array($value))
 			{
-				$val = $this->_change($val, $what, $to);
+				foreach($value AS &$val)
+				{
+					$val = $this->_change($val, $what, $to);
+				}
 			}
+			else if($value == $what)
+			{
+				$value = $to;
+			}
+	
+			return $value;
 		}
-		else if($value == $what)
-		{
-			$value = $to;
-		}
-
-		return $value;
 	}
-}
-```
 
 Now you can chane these lines
 
