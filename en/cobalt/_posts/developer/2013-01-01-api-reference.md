@@ -8,12 +8,13 @@ tags: developer API
 
 How to get the value of an individual field:
 
-	echo CobaltApi::renderField($record, $field_id, $view, $default);
+	echo CobaltApi::renderField($record, $field_id, $view, $default, $bykey);
 
 - `$record` -  Record ID or record object which you get through `ItemsStore::getRecord($record_id)`.
 - `$field_id` - ID of the field you want to render.
 - `$view` - `full` or `list`. Render view - either article list or full article view. 
 - `$default` - Default display value if nothing was saved in the field.
+- `$bykey` - By default is is false. It tells either we get field by key or by ID. If it is true then `$field_id` is treated as field key.
 
 Don't call it in list and full article templates to avoid unnecessary SQL queries. Every field value is accessible and already loaded there. 
 <div class="alert">For a better understanding how to access field values in article list and full view templates, please read <a href="/en/cobalt/custom-templates-article/">Customize article templates</a></div>
