@@ -1,5 +1,4 @@
 ---
----
 layout: doc
 title:  "Migration from AEC Membership Manager"
 date:   2016-03-27 12:30:30
