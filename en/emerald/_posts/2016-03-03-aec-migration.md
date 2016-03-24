@@ -1,7 +1,7 @@
 ---
 layout: doc
 title:  "Migration from AEC Membership Manager"
-date:   2016-03-27 12:30:30
+date:   2016-03-03 12:30:30
 tags: setup
 intro: "Instruction how to migrate membership from AEC to Emerald."
 ---
