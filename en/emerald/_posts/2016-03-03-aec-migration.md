@@ -47,5 +47,5 @@ Good news, we do not plan Emerald EOT (We even have Emerald 10 almost ready) and
 8. Now you are ready to publish your site.
 
 
-[1]: http://docs.mintjoomla.com/en/emerald/emerald-quick-start/
-[2]: http://docs.mintjoomla.com/en/emerald/plan-actions/
+[1]: http://docs.mintjoomla.com/en/emerald/emerald-quick-start
+[2]: http://docs.mintjoomla.com/en/emerald/plan-actions
