@@ -80,3 +80,42 @@ Examples:
 Note that urls to _add_ or _edit_ record already passed through `JRouter`.
 
 `$record` or `$section` may be as object returned by `ItemsStore` or ID.
+
+## Create new record
+
+You can programmaticaly create new records. For that you can use API 
+
+	CobaltApi::createRecord($data, $section_id, $type_id, $fields, $categories, $tags)
+
+- `$data` is an array. The key of the array is the name of the column in `_js_res_record`. One parameter is required is a `title`. All other parameters like `alias`, `published`, `access` will be set acording to your type parameters. Of course if you set then here, those will be overwriten. 
+- `$section_id` id of the section
+- `$type_id` id of record type
+- `$fields` is an array of fields. The key is an ID fo the field. For example you want to set fields 12 and 34
+   
+      [
+	    12 => ...
+		34 => ...		
+      ]
+	
+  What to put as fields value? You can find it on Cobalt record form. Just look what values this or that field have. For emaple Status field has a single  integer value so ti will be like `12 => 2` and Select field has an array of values `12 => ['value 1', 'Value 2']`.
+- `$categories` array of categories you want to put this record to. Even if it is only one category, should be an array `[2]` or `[2,15,36]`
+- `$tags` list aof tags. String array `['Tag 1', 'Tag 2]`
+
+For example:
+
+	CobaltApi::createRecord(
+		[
+			'title' => 'test 3',
+			'access' => 1 
+		],
+		4, //section
+		5, // type
+		[
+			65 => 5,
+			67 => ['Red', 'Blue']
+		], // fields
+		[14], //categpries
+		['joomla', 'moomla'] // tags
+	);
+
+`[]` is a new syntax for PHP array defenition. So `[11]` is equal to `array(11)`.
