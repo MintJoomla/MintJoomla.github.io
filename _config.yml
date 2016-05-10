@@ -5,6 +5,8 @@ version: 1.0
 markdown: kramdown
 highlighter: rouge
 kramdown:
+  input: GFM
+  syntax_highlighter: rouge
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
