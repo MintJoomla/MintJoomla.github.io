@@ -23,7 +23,9 @@ Don't call it in list and full article templates to avoid unnecessary SQL querie
 
 You can calculate different rating summaries with this API.
 
-	$rating = CobaltApi::renderRating($type_id, $section_id, $condition);
+```php
+$rating = CobaltApi::renderRating($type_id, $section_id, $condition);
+```
 
 - `$type_id` - ID of the content type. This will be used to understand what is rating parameters. If it is multiple property rating or single property and how to calculate results.
 - `$section_id` - ID of the section.
