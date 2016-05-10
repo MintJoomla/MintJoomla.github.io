@@ -1,9 +1,9 @@
 name: MintJoomla Documentation Home
-pygments: true
 permalink: /:categories/:title
 exclude: ["./bower.json", "./package.json"]
 version: 1.0
 markdown: kramdown
+highlighter: rouge
 kramdown:
   auto_ids: true
   footnote_nr: 1

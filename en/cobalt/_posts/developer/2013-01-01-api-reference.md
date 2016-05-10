@@ -103,20 +103,22 @@ You can programmaticaly create new records. For that you can use API
 
 For example:
 
-	CobaltApi::createRecord(
-		[
-			'title' => 'test 3',
-			'access' => 1 
-		],
-		4, //section
-		5, // type
-		[
-			65 => 5,
-			67 => ['Red', 'Blue']
-		], // fields
-		[14], //categpries
-		['joomla', 'moomla'] // tags
-	);
+```php
+CobaltApi::createRecord(
+	[
+		'title' => 'test 3',
+		'access' => 1 
+	],
+	4, //section
+	5, // type
+	[
+		65 => 5,
+		67 => ['Red', 'Blue']
+	], // fields
+	[14], //categpries
+	['joomla', 'moomla'] // tags
+);
+```
 
 `[]` is a new syntax for PHP array defenition. So `[11]` is equal to `array(11)`.
 
