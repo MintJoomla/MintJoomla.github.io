@@ -119,3 +119,12 @@ For example:
 	);
 
 `[]` is a new syntax for PHP array defenition. So `[11]` is equal to `array(11)`.
+
+## Update Record
+
+To update record use 
+
+	CobaltApi::updateRecord($redord_id, $data, $fields, $categories, $tags);
+
+- `$record_id` - id of the edited record.
+- the rest is just like in `CobaltApi::createRecord()`
