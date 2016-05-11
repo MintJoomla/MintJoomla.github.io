@@ -9,7 +9,7 @@ tags: developer API
 How to get the value of an individual field:
 
 ~~~php
-echo CobaltApi::renderField($record, $field_id, $view, $default, $bykey);
+<?php echo CobaltApi::renderField($record, $field_id, $view, $default, $bykey); ?>
 ~~~
 
 - `$record` -  Record ID or record object which you get through `ItemsStore::getRecord($record_id)`.
@@ -26,7 +26,7 @@ Don't call it in list and full article templates to avoid unnecessary SQL querie
 You can calculate different rating summaries with this API.
 
 ~~~php
-$rating = CobaltApi::renderRating($type_id, $section_id, $condition);
+<?php $rating = CobaltApi::renderRating($type_id, $section_id, $condition); ?>
 ~~~
 
 - `$type_id` - ID of the content type. This will be used to understand what is rating parameters. If it is multiple property rating or single property and how to calculate results.
@@ -41,6 +41,7 @@ This method will return `array`
 - `$rating['multi']` - If it is multiple property rating this is going to be an array with will contain `sum` and `num` per every property where `sum` is a total result as number from 0 to 100 per property and `num` is a total number of ratings given for this property. 
     
   ~~~php
+  <?php
   $rating['multi'][0]['sum'] = 50;
   $rating['multi'][0]['num'] = 2;
   $rating['multi'][1]['sum'] = 89;
@@ -65,6 +66,7 @@ With this data returned you may use it in all different ways. For example you wa
 On of the most useful helper in Cobalt API is `ItemsStore` class which allow you quickly get record, section, category or type object.
 
 ~~~php
+<?php
 $record = ItemsStore::getRecord($record_id);
 $section = ItemsStore::getSection($section_id);
 $type = ItemsStore::getType($type_id);
@@ -74,6 +76,7 @@ $category = ItemsStore::getCategory($cat_id);
 This initialise parameters as well so you can get access to type or section parameters.
 
 ~~~php
+<?php
 $section->params->get('general.section_iid');
 ~~~
 	
@@ -120,6 +123,7 @@ CobaltApi::createRecord($data, $section_id, $type_id, $fields, $categories, $tag
 For example:
 
 ~~~php
+<?php
 CobaltApi::createRecord(
 	[
 		'title' => 'test 3',
@@ -143,6 +147,7 @@ CobaltApi::createRecord(
 To update record use 
 
 ~~~php
+<?php
 CobaltApi::updateRecord($redord_id, $data, $fields, $categories, $tags);
 ~~~
 
