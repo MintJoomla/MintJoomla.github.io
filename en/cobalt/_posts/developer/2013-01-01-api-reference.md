@@ -8,7 +8,9 @@ tags: developer API
 
 How to get the value of an individual field:
 
-	echo CobaltApi::renderField($record, $field_id, $view, $default, $bykey);
+~~~php
+echo CobaltApi::renderField($record, $field_id, $view, $default, $bykey);
+~~~
 
 - `$record` -  Record ID or record object which you get through `ItemsStore::getRecord($record_id)`.
 - `$field_id` - ID of the field you want to render.
@@ -23,9 +25,9 @@ Don't call it in list and full article templates to avoid unnecessary SQL querie
 
 You can calculate different rating summaries with this API.
 
-```php
+~~~php
 $rating = CobaltApi::renderRating($type_id, $section_id, $condition);
-```
+~~~
 
 - `$type_id` - ID of the content type. This will be used to understand what is rating parameters. If it is multiple property rating or single property and how to calculate results.
 - `$section_id` - ID of the section.
@@ -38,10 +40,12 @@ This method will return `array`
 - `$rating['num']` - Total number of ratings given.
 - `$rating['multi']` - If it is multiple property rating this is going to be an array with will contain `sum` and `num` per every property where `sum` is a total result as number from 0 to 100 per property and `num` is a total number of ratings given for this property. 
     
-		$rating['multi'][0]['sum'] = 50;
-		$rating['multi'][0]['num'] = 2;
-		$rating['multi'][1]['sum'] = 89;
-		$rating['multi'][1]['num'] = 2;
+  ~~~php
+  $rating['multi'][0]['sum'] = 50;
+  $rating['multi'][0]['num'] = 2;
+  $rating['multi'][1]['sum'] = 89;
+  $rating['multi'][1]['num'] = 2;
+  ~~~
 	
 	This means that property 1 (index 0) average 50% rating given in 2 ratings and property 2 is 89%.
 
@@ -49,23 +53,29 @@ This method will return `array`
 
 With this data returned you may use it in all different ways. For example you want to get rating of the current use in given section.
 
-	<?php $rating = CobaltApi::renderRating(1, 1, 'r.user_id = 10');?>
-	<div>
-		Total <?php echo $rating['total'] ?> out of <?php echo $rating['num'] ?> votes!
-	</div>
+~~~php
+<?php $rating = CobaltApi::renderRating(1, 1, 'r.user_id = 10');?>
+<div>
+	Total <?php echo $rating['total'] ?> out of <?php echo $rating['num'] ?> votes!
+</div>
+~~~
 	
 ## Items Store
 
 On of the most useful helper in Cobalt API is `ItemsStore` class which allow you quickly get record, section, category or type object.
 
-	$record = ItemsStore::getRecord($record_id);
-	$section = ItemsStore::getSection($section_id);
-	$type = ItemsStore::getType($type_id);
-	$category = ItemsStore::getCategory($cat_id);
+~~~php
+$record = ItemsStore::getRecord($record_id);
+$section = ItemsStore::getSection($section_id);
+$type = ItemsStore::getType($type_id);
+$category = ItemsStore::getCategory($cat_id);
+~~~
 
 This initialise parameters as well so you can get access to type or section parameters.
 
-	$section->params->get('general.section_iid');
+~~~php
+$section->params->get('general.section_iid');
+~~~
 	
 `$record` will not contain fields.
 
@@ -75,9 +85,11 @@ Another important class is Url. It created Urls.  It is important to use this cl
 
 Examples:
 
-	<a href="<?php echo JRoute::_(Url::record($record)); ?>">
-	<a href="<?php echo JRoute::_(Url::records($section)); ?>">
-	<a href="<?php echo Url::add($section, $type, $category); ?>">
+~~~php
+<a href="<?php echo JRoute::_(Url::record($record)); ?>">
+<a href="<?php echo JRoute::_(Url::records($section)); ?>">
+<a href="<?php echo Url::add($section, $type, $category); ?>">
+~~~
 
 Note that urls to _add_ or _edit_ record already passed through `JRouter`.
 
@@ -87,7 +99,9 @@ Note that urls to _add_ or _edit_ record already passed through `JRouter`.
 
 You can programmaticaly create new records. For that you can use API 
 
-	CobaltApi::createRecord($data, $section_id, $type_id, $fields, $categories, $tags)
+~~~php
+CobaltApi::createRecord($data, $section_id, $type_id, $fields, $categories, $tags)
+~~~
 
 - `$data` is an array. The key of the array is the name of the column in `_js_res_record`. One parameter is required is a `title`. All other parameters like `alias`, `published`, `access` will be set acording to your type parameters. Of course if you set then here, those will be overwriten. 
 - `$section_id` id of the section
@@ -105,7 +119,7 @@ You can programmaticaly create new records. For that you can use API
 
 For example:
 
-```php
+~~~php
 CobaltApi::createRecord(
 	[
 		'title' => 'test 3',
@@ -120,7 +134,7 @@ CobaltApi::createRecord(
 	[14], //categpries
 	['joomla', 'moomla'] // tags
 );
-```
+~~~
 
 `[]` is a new syntax for PHP array defenition. So `[11]` is equal to `array(11)`.
 
@@ -128,7 +142,9 @@ CobaltApi::createRecord(
 
 To update record use 
 
-	CobaltApi::updateRecord($redord_id, $data, $fields, $categories, $tags);
+~~~php
+CobaltApi::updateRecord($redord_id, $data, $fields, $categories, $tags);
+~~~
 
 - `$record_id` - id of the edited record.
 - the rest is just like in `CobaltApi::createRecord()`
