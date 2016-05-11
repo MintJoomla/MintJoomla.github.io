@@ -34,7 +34,7 @@ You have to create Joomla plugin of `mint` group. Here is `XML`
 
 You create plugin as you create any other [Joomla plugin](http://docs.joomla.org/Creating_a_Plugin_for_Joomla/2.5).
 
-Here is sample ph php file
+Here is a sample php file
 
 ~~~php
 <?php
@@ -49,7 +49,7 @@ class plgMintPluginname extends JPlugin
 
 `onAfterArticleSaved` event is triggered article has been saved successfully.
 
-Here is sample
+Here is a sample
 
 ~~~php
 <?php
@@ -89,7 +89,7 @@ class plgMintPluginname extends JPlugin
 
 `onBeforeArticleSaved` event is triggered before article save process is triggered.
 
-Here is sample
+Here is a sample
 
 ~~~php
 <?php
@@ -110,12 +110,11 @@ class plgMintPluginname extends JPlugin
 - `$section` - **object** - Section object. Includes `$section->params` where you can get all section parameters.
 - `$type` - **object** - Content Type object. Includes `$type->params` where you can get all type parameters.
 
-
 ## onActivity
 
 `onActivity` event is triggered on every action in cobalt.
 
-Here is sample
+Here is a sample
 
 ~~~php
 <?php
