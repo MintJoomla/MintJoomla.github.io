@@ -10,23 +10,25 @@ intro: "Integrate your or third party extension with Cobalt through events."
 
 You have to create Joomla plugin of `mint` group. Here is `XML`
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<extension version="3.0" type="plugin" group="mint" method="upgrade">
-		<name>Cobalt - Plugin - My Plugin</name>
-		<author>Author</author>
-		<creationDate>February 17 2009</creationDate>
-		<copyright>Author</copyright>
-		<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
-		<authorEmail>email@domain.com</authorEmail>
-		<authorUrl>http://www.site.com</authorUrl>
-		<version>8.0</version>
-		<description>
-		<![CDATA[ This is description]]>
-		</description>
-		<files>
-			<filename plugin="myplugin">myplugin.php</filename>
-		</files>
-	</extension>
+~~~xml
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="mint" method="upgrade">
+	<name>Cobalt - Plugin - My Plugin</name>
+	<author>Author</author>
+	<creationDate>February 17 2009</creationDate>
+	<copyright>Author</copyright>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<authorEmail>email@domain.com</authorEmail>
+	<authorUrl>http://www.site.com</authorUrl>
+	<version>8.0</version>
+	<description>
+	<![CDATA[ This is description]]>
+	</description>
+	<files>
+		<filename plugin="myplugin">myplugin.php</filename>
+	</files>
+</extension>
+~~~
 
 `<version>` have to start with `8.*` for Cobalt 8 and with `7.*` for Cobalt 7.
 
@@ -34,16 +36,14 @@ You create plugin as you create any other [Joomla plugin](http://docs.joomla.org
 
 Here is sample ph php file
 
-	<?php
-	defined('_JEXEC') or die('Restricted access');
-
-	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
-
-	class plgMintPluginname extends JPlugin
-	{
-
-	}
-
+~~~php
+<?php
+defined('_JEXEC') or die('Restricted access');
+require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+class plgMintPluginname extends JPlugin
+{
+}
+~~~
 
 ## onAfterArticleSaved
 
@@ -51,32 +51,33 @@ Here is sample ph php file
 
 Here is sample
 
-	<?php
-	defined('_JEXEC') or die('Restricted access');
+~~~php
+<?php
+defined('_JEXEC') or die('Restricted access');
 
-	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+require_once JPATH_ROOT . '/components/com_cobalt/api.php';
 
-	class plgMintPluginname extends JPlugin
+class plgMintPluginname extends JPlugin
+{
+	public function onAfterArticleSaved($isnew, $record, $fields, $section, $type)
 	{
-		public function onAfterArticleSaved($isnew, $record, $fields, $section, $type)
+		if($isnew)
 		{
-		    if($isnew)
-		    {
-		        // Expire in 30 days
-		        $record->extime = date('Y-m-d h:i:s', time() + (86400 * 30));
-		        $record->store();
-		    }
+			// Expire in 30 days
+			$record->extime = date('Y-m-d h:i:s', time() + (86400 * 30));
+			$record->store();
+		}
 
-		    foreach($fields AS $field)
-		    {
-		        if($field->type == 'myfield')
-		        {
-		            $value = $field->value;
-		        }
-		    }
+		foreach($fields AS $field)
+		{
+			if($field->type == 'myfield')
+			{
+				$value = $field->value;
+			}
 		}
 	}
-
+}
+~~~
 
 - `$isnew` - **boolean** - If this is new article or we edit article.
 - `$record` - **JTable** - JTable object.
@@ -90,18 +91,19 @@ Here is sample
 
 Here is sample
 
-	<?php
-	defined('_JEXEC') or die('Restricted access');
+~~~php
+<?php
+defined('_JEXEC') or die('Restricted access');
 
-	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+require_once JPATH_ROOT . '/components/com_cobalt/api.php';
 
-	class plgMintPluginname extends JPlugin
+class plgMintPluginname extends JPlugin
+{
+	public function onBeforeArticleSaved($isnew, $record, $section, $type)
 	{
-		public function onBeforeArticleSaved($isnew, $record, $section, $type)
-		{
-		}
 	}
-
+}
+~~~
 
 - `$isnew` - **boolean** - If this is new article or we edit article.
 - `$record` - **array** - Array of submitted form data.
@@ -115,22 +117,23 @@ Here is sample
 
 Here is sample
 
-	<?php
-	defined('_JEXEC') or die('Restricted access');
-	
-	require_once JPATH_ROOT . '/components/com_cobalt/api.php';
-	
-	class plgMintPluginname extends JPlugin
+~~~php
+<?php
+defined('_JEXEC') or die('Restricted access');
+
+require_once JPATH_ROOT . '/components/com_cobalt/api.php';
+
+class plgMintPluginname extends JPlugin
+{
+	public function onActivity($actor, $target, $options, $record)
 	{
-		public function onActivity($actor, $target, $options, $record)
+		if($options['type'] == CEventsHelper::_RECORD_NEW)
 		{
-			if($options['type'] == CEventsHelper::_RECORD_NEW)
-			{
-				// do actions...
-			}
+			// do actions...
 		}
 	}
-
+}
+~~~
 
 - `$actor` - **int** - user who make an action
 - `$target` - **int** - user who's object affected. 
