@@ -8,5 +8,5 @@ tags: fields developer
 
 ## Требования
 
-Необходимо что бы вы уже ознакомились с [основами создания полей](/ru/cobalt/create-cobalt-field-base/) в Кобальт.
+Необходимо что бы вы уже ознакомились с [основами создания полей](/ru/cobalt/create-cobalt-field-base) в Кобальт.
 
