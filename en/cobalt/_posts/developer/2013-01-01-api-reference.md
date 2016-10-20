@@ -19,7 +19,7 @@ How to get the value of an individual field:
 - `$bykey` - By default is is false. It tells either we get field by key or by ID. If it is true then `$field_id` is treated as field key.
 
 Don't call it in list and full article templates to avoid unnecessary SQL queries. Every field value is accessible and already loaded there. 
-<div class="alert">For a better understanding how to access field values in article list and full view templates, please read <a href="/en/cobalt/custom-templates-article/">Customize article templates</a></div>
+<div class="alert">For a better understanding how to access field values in article list and full view templates, please read <a href="/en/cobalt/custom-templates-article">Customize article templates</a></div>
 
 ## Rating calculation
 

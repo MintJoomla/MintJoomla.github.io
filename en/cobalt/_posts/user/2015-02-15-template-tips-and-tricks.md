@@ -6,7 +6,7 @@ tags: templates developer
 intro: "Additional information."
 ---
 
-<div class="alert">General rules how to work with templates, please read  <a href="/en/cobalt/custom-templates-general/">Customize templates - general</a></div>
+<div class="alert">General rules how to work with templates, please read  <a href="/en/cobalt/custom-templates-general">Customize templates - general</a></div>
 
 ## Remove dropdown Switch view and change template labels to images with labels as tooltips
 

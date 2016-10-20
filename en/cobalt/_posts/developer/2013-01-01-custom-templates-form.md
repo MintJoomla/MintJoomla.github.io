@@ -5,7 +5,7 @@ date:   2013-01-01 12:30:30
 tags: developer templates
 ---
 
-<div class="alert">To understand this article please first read <a href="/en/cobalt/custom-templates-general/">Customize templates - general</a></div>
+<div class="alert">To understand this article please first read <a href="/en/cobalt/custom-templates-general">Customize templates - general</a></div>
 
 There are 2 main field storages.
 

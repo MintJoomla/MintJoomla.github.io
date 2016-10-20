@@ -5,7 +5,7 @@ date:   2013-01-01 12:30:30
 tags: developer templates
 ---
 
-<div class="alert">To understand this article please first read <a href="/en/cobalt/custom-templates-general/">Customize templates - general</a></div>
+<div class="alert">To understand this article please first read <a href="/en/cobalt/custom-templates-general">Customize templates - general</a></div>
 
 Basically when we talk about templates, we talk about Article and Articles List templates. The other templates may be easily styles and adjusted. 
 
