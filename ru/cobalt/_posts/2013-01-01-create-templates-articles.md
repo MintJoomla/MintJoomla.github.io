@@ -5,7 +5,7 @@ date:   2013-07-16 18:53:38
 tags: templates developer
 ---
 
-<div class="alert">Для понимания этой темы необходимо ознакомится с темой <a href="/ru/cobalt/create-templates-general/">основы работы с шаблонами</a>.</div>
+<div class="alert">Для понимания этой темы необходимо ознакомится с темой <a href="/ru/cobalt/create-templates-general">основы работы с шаблонами</a>.</div>
 
 В шаблоне списка статей или полного вида статьи Вы увидите объект `$item`, который содержит в себе Запись (record).
 
