@@ -5,6 +5,41 @@ date:   2013-01-01 12:30:30
 tags: filters setup
 intro: "Create link that will automatically apply filter to list of the articles."
 ---
+# Link for order
+
+If you want to create link outside of Cobalt to pre-ordered list of articles use this URL.
+
+    http://www.com/index.php?option=com_cobalt&
+		view=records&
+		section_id=1&
+		filter_order=r.title&
+		filter_order_Dir=asc
+
+Basic rule is that you should take URL of the list of articles you want including all parameters like `section_id`, `Itemid` or `cat_id` or others and add 2 new parameters.
+
+Parameter		 | Req.      | Description
+-----------------|-----------|------
+`filter_order`	 | ![Yes][1] | How to order. See below.
+`filter_order_Dir` | ![Yes][1] | What is order direction. Can be `asc` or `desc`
+
+List of possible ordering types
+
+* `r.ctime` - Time of creation
+* `r.mtime` - modification time
+* `r.extime` - time of expiration
+* `r.title` - Article title
+* `name` - Name of the author
+* `username` - User name od the author
+* `r.hits` - Article views
+* `r.comments` - Number of comments
+* `r.favorite_num` - Number of bookmarks
+* `r.votes_result` - Rating
+
+If your URL is SEF like `http://domain.com/list` then you can use `?`
+
+    http://domain.com/list?filter_order=r.title&filter_order_Dir=asc
+
+# Link for filters
 
 What if you what to create link in menu (or anywhere else), that can automatically set search filters you want for articles list? For example: _Events for the next 14 days with location 20 miles within the London_. You can easily do it with new Cobalt filter interface.
 
